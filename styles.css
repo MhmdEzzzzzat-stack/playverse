@@ -83,3 +83,10 @@
 .game-card:hover .game-cover .preview-hint,.game-card:focus-within .game-cover .preview-hint{opacity:1;transform:translateY(0)}
 .game-card:hover .game-cover .cover-art{filter:saturate(1.12) brightness(1.06);transform:scale(1.045)}
 @media(hover:none){.game-cover .preview-hint{opacity:1;transform:none;font-size:7px}}
+
+
+/* Homepage discovery rows inspired by modern browser-game libraries */
+.recommendations-section[aria-label="New games"] .recommendation-card{min-height:76px}
+.recommendations-section[aria-label="New games"] .recommendation-icon{background:linear-gradient(145deg,#a18aff35,#63e6d225);box-shadow:inset 0 0 0 1px #ffffff0b}
+.recommendations-section[aria-label="New games"] .recommendation-card:hover .recommendation-icon{transform:scale(1.04)}
+.recommendation-icon{transition:transform .2s}
