@@ -337,7 +337,7 @@
       if (card.querySelector(".game-preview-frame") || window.matchMedia("(hover: none)").matches) return;
       const frame = document.createElement("iframe");
       frame.className = "game-preview-frame";
-      frame.src = card.dataset.previewSrc;
+      frame.src = card.dataset.previewSrc + "?preview=1";
       frame.title = $(".game-info h3", card)?.textContent + " live preview";
       frame.loading = "eager";
       frame.setAttribute("sandbox", "allow-scripts");
