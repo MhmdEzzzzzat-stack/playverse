@@ -82,6 +82,7 @@
     if (launch) { launch.click(); }
     else if (href) { window.location.href = href.getAttribute("href"); }
   }));
+  $("[data-track-game]").forEach(link => link.addEventListener("click", () => saveRecentlyPlayed(link.dataset.trackGame)));
   $("#clearRecentlyPlayed")?.addEventListener("click", () => {
     recentlyPlayed = [];
     try { localStorage.removeItem(recentKey); } catch (_) {}
