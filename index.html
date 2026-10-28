@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111b">
+  <meta name="description" content="Play free online games instantly on PlayVerse. Discover arcade, puzzle, memory and casual games on desktop and mobile.">
+  <title>PlayVerse — Play Something Awesome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PlayVerse home"><span class="brand-mark">P<span>V</span></span><span>play<span class="brand-light">verse</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#games">Explore</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#about">About</a>
+    </nav>
+    <div class="header-actions"><button class="icon-button" id="favoritesToggle" aria-pressed="false" aria-label="Show favorites" title="Favorites">♡</button><a class="header-cta" href="#games">Play now <span>↗</span></a></div>
+  </header>
+  <main>
+    <section class="hero" id="featured">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT BREAK STARTS HERE</div>
+        <h1>Find your next<br> <span class="gradient-text">favorite game.</span></h1>
+        <p>Quick to start. Hard to put down. Jump into fun with free games made for your little moments of escape.</p>
+        <div class="hero-actions"><a class="primary-button" href="#games">Explore games <span>→</span></a><div class="social-proof"><div class="avatar-stack"><i>🎮</i><i>🧩</i><i>🚀</i></div><span><strong>Instant fun</strong><small>No downloads needed</small></span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Colorful game illustrations">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="float-card float-card-one"><span>✦</span><small>NEW HIGH SCORE</small><strong>2,048</strong></div>
+        <div class="game-planet planet-main">🎮</div><div class="game-planet planet-small">🧩</div><div class="game-planet planet-star">🚀</div>
+        <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✳</div><div class="art-spark spark-three">✦</div>
+        <div class="float-card float-card-two"><span class="online-dot"></span><strong>Ready when you are</strong></div>
+      </div>
+    </section>
+    <section class="stats-strip" aria-label="Site highlights"><div><strong>100%</strong><span>Free to play</span></div><div><strong>0</strong><span>Downloads</span></div><div><strong>∞</strong><span>Ways to have fun</span></div><div class="stats-note"><span class="sparkle">✦</span> Your browser is the playground.</div></section>
+    <section class="games-section" id="games">
+      <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>One click and you’re in. What are we playing?</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
+      <div class="filter-row" role="group" aria-label="Filter games">
+        <button class="filter-chip selected" data-filter="All">✦ All games <span>4</span></button><button class="filter-chip" data-filter="Arcade">🕹 Arcade</button><button class="filter-chip" data-filter="Puzzle">🧩 Puzzle</button><button class="filter-chip" data-filter="Memory">🧠 Memory</button><button class="filter-chip" data-filter="Classic">⭐ Classics</button>
+      </div>
+      <div class="games-grid" id="gamesGrid">
+        <article class="game-card" data-name="2048 number puzzle" data-category="Puzzle" data-game="2048">
+          <div class="game-cover cover-2048"><span class="cover-badge">BRAIN BOOST</span><div class="tile-stack"><i>2</i><i>4</i><i>8</i><i>16</i></div><span class="cover-deco">+</span></div>
+          <div class="game-info"><div><h3>2048</h3><p>Slide. Merge. Master.</p></div><button class="favorite-button" aria-label="Add 2048 to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">PUZZLE</span><button class="play-button" data-launch="2048">Play <span>↗</span></button></div>
+        </article>
+        <article class="game-card" data-name="snake arcade classic" data-category="Arcade" data-game="snake">
+          <div class="game-cover cover-snake"><span class="cover-badge">ARCADE HIT</span><div class="snake-board"><i></i><i></i><i></i><i></i><b></b></div><span class="snake-food">✦</span></div>
+          <div class="game-info"><div><h3>Neon Snake</h3><p>One more bite.</p></div><button class="favorite-button" aria-label="Add Neon Snake to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">ARCADE</span><button class="play-button" data-launch="snake">Play <span>↗</span></button></div>
+        </article>
+        <article class="game-card" data-name="memory match cards brain" data-category="Memory" data-game="memory">
+          <div class="game-cover cover-memory"><span class="cover-badge">TRAIN YOUR BRAIN</span><div class="memory-cards"><i>✦</i><i>☾</i><i>♫</i><i>✿</i></div><span class="cover-glow"></span></div>
+          <div class="game-info"><div><h3>Memory Match</h3><p>Find every pair.</p></div><button class="favorite-button" aria-label="Add Memory Match to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">MEMORY</span><button class="play-button" data-launch="memory">Play <span>↗</span></button></div>
+        </article>
+        <article class="game-card" data-name="tic tac toe noughts crosses classic" data-category="Classic" data-game="tictactoe">
+          <div class="game-cover cover-ttt"><span class="cover-badge">THE CLASSIC</span><div class="ttt-board"><i>×</i><i>○</i><i></i><i>○</i><i>×</i><i></i><i></i><i>○</i><i>×</i></div><span class="ttt-star">✳</span></div>
+          <div class="game-info"><div><h3>Tic Tac Toe</h3><p>Outsmart your rival.</p></div><button class="favorite-button" aria-label="Add Tic Tac Toe to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">CLASSIC</span><button class="play-button" data-launch="tictactoe">Play <span>↗</span></button></div>
+        </article>
+      </div>
+      <div class="empty-state" id="emptyState" hidden><span>🔎</span><h3>No games found</h3><p>Try another search or category.</p><button class="text-button" id="resetFilters">Clear filters</button></div>
+    </section>
+    <section class="bottom-banner" id="about"><div class="banner-icon">✦</div><div><span class="eyebrow">SMALL BREAK. BIG ENERGY.</span><h2>Good games. Good vibes.</h2><p>PlayVerse is your growing corner of the internet for quick, free browser games.</p></div><a class="primary-button" href="#games">Find a game <span>→</span></a></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">P<span>V</span></span><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
+  <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
+  </div>
+  <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
+</body>
+</html>
