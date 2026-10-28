@@ -76,3 +76,10 @@
 
 .cover-pong{background:radial-gradient(circle at 50% 40%,#294a7e,#171d3d)}.cover-flappy{background:radial-gradient(circle at 50% 35%,#5b9c8b,#1b3e47)}.cover-simon{background:radial-gradient(circle at 50% 40%,#754a9a,#241d43)}.cover-tetris{background:radial-gradient(circle at 50% 35%,#b36e55,#3d244d)}
 .emoji-cover{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(48px,6vw,78px);filter:drop-shadow(0 12px 15px #0005);transition:transform .3s}.game-card:hover .emoji-cover{transform:scale(1.12) rotate(-4deg)}
+
+/* Consistent cover-art presentation and hover preview cue */
+.game-cover .cover-art{z-index:1}
+.game-cover .preview-hint{position:absolute;z-index:3;right:10px;bottom:10px;padding:6px 8px;border-radius:7px;background:#11121cd9;border:1px solid #ffffff2b;color:#f2efff;font-size:8px;font-weight:800;letter-spacing:1px;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none}
+.game-card:hover .game-cover .preview-hint,.game-card:focus-within .game-cover .preview-hint{opacity:1;transform:translateY(0)}
+.game-card:hover .game-cover .cover-art{filter:saturate(1.12) brightness(1.06);transform:scale(1.045)}
+@media(hover:none){.game-cover .preview-hint{opacity:1;transform:none;font-size:7px}}
