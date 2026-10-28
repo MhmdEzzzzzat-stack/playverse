@@ -52,6 +52,19 @@
       </div>
     </section>
     <section class="stats-strip" aria-label="Site highlights"><div><strong>100%</strong><span>Free to play</span></div><div><strong>0</strong><span>Downloads</span></div><div><strong>∞</strong><span>Ways to have fun</span></div><div class="stats-note"><span class="sparkle">✦</span> Your browser is the playground.</div></section>
+    <section class="recommendations-section" aria-label="Popular games">
+      <div class="mini-section-heading"><div><span class="eyebrow">PLAYER FAVORITES</span><h2>Popular Games</h2><p>Start with a community-style favorite.</p></div><a href="#games">Browse all ↗</a></div>
+      <div class="recommendation-row" id="popularGames">
+        <a class="recommendation-card" href="#games" data-recommend="snake"><span class="recommendation-icon">🐍</span><span><strong>Neon Snake</strong><small>Arcade · Quick reflexes</small></span><b>Play ↗</b></a>
+        <a class="recommendation-card" href="#games" data-recommend="2048"><span class="recommendation-icon">🔢</span><span><strong>2048</strong><small>Puzzle · Number strategy</small></span><b>Play ↗</b></a>
+        <a class="recommendation-card" href="#games" data-recommend="tictactoe"><span class="recommendation-icon">⭕</span><span><strong>Tic Tac Toe</strong><small>Classic · Head-to-head</small></span><b>Play ↗</b></a>
+        <a class="recommendation-card" href="#games" data-recommend="memory"><span class="recommendation-icon">🧠</span><span><strong>Memory Match</strong><small>Memory · Find every pair</small></span><b>Play ↗</b></a>
+      </div>
+    </section>
+    <section class="recommendations-section recently-section" id="recentlyPlayedSection" aria-label="Recently played games" hidden>
+      <div class="mini-section-heading"><div><span class="eyebrow">PICK UP WHERE YOU LEFT OFF</span><h2>Recently Played</h2><p>Your recent games are saved on this device.</p></div><button class="clear-recent-button" id="clearRecentlyPlayed" type="button">Clear history</button></div>
+      <div class="recommendation-row" id="recentlyPlayedGames"></div>
+    </section>
     <section class="games-section" id="games">
       <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>One click and you’re in. What are we playing?</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
       <div class="filter-row" role="group" aria-label="Filter games">
