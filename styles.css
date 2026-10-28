@@ -102,3 +102,11 @@
 .game-cover .preview-live-label{position:absolute;z-index:6;left:10px;bottom:10px;padding:5px 7px;border:1px solid #ffffff2b;border-radius:6px;background:#10111ddd;color:#d8fff6;font-size:8px;font-weight:800;letter-spacing:1px;opacity:0;pointer-events:none}
 .game-card.preview-active .preview-live-label{opacity:1}
 @media(hover:none){.game-cover .game-preview-frame,.game-cover .preview-live-label{display:none}}
+
+/* Featured original racing game: make the artwork unmistakable */
+.game-card[data-game="neon-drift"]{border-color:rgba(99,255,232,.42);background:linear-gradient(150deg,#171d3a,#171525);box-shadow:0 0 0 1px #63ffe91a,0 14px 34px #05081770}
+.game-card[data-game="neon-drift"] .game-cover{height:190px;background:#080b19}
+.game-card[data-game="neon-drift"] .cover-badge{background:linear-gradient(100deg,#63ffe9e8,#8b6cffed);border-color:#ffffff65;color:#090b18;font-size:9px;font-weight:900}
+.game-card[data-game="neon-drift"] .game-info h3{color:#f7f5ff}
+.game-card[data-game="neon-drift"] .play-button{background:linear-gradient(100deg,#63ffe9,#9d87ff);color:#080b18;font-weight:900}
+.game-card[data-game="neon-drift"]:hover{border-color:#63ffe9;box-shadow:0 0 28px #63ffe92b,0 18px 42px #0005}
