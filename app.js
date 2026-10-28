@@ -43,7 +43,7 @@
     const section = $("#recentlyPlayedSection");
     const container = $("#recentlyPlayedGames");
     if (!section || !container) return;
-    const cards = $(".game-card");
+    const cards = $$(".game-card");
     container.innerHTML = "";
     recentlyPlayed.forEach(id => {
       const card = cards.find(item => item.dataset.game === id);
@@ -75,7 +75,7 @@
   }
   renderRecentlyPlayed();
   $("#popularGames [data-recommend]").forEach(link => link.addEventListener("click", () => {
-    const card = $(".game-card").find(item => item.dataset.game === link.dataset.recommend);
+    const card = $$(".game-card").find(item => item.dataset.game === link.dataset.recommend);
     if (!card) return;
     const launch = card.querySelector("[data-launch]");
     const href = card.querySelector("a.play-button");
