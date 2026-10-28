@@ -28,7 +28,7 @@ const grid=new THREE.GridHelper(120,60,0x284d86,0x17284c);grid.position.set(0,.0
 // Raised, luminous lane markers scroll toward the runner to make speed and perspective readable.
 const roadDashes=[];
 for(const x of [-1,1])for(let i=0;i<18;i++){
- const dash=new THREE.Mesh(new THREE.BoxGeometry(.035,.025,1.9),makeGlow(x<0?0x54f6e8:0xff4fbd,.82));
+ const dash=new THREE.Mesh(new THREE.BoxGeometry(.035,.025,1.9),new THREE.MeshBasicMaterial({color:x<0?0x54f6e8:0xff4fbd,transparent:true,opacity:.82}));
  dash.position.set(x*1.0,.025,-88+i*5.5);scene.add(dash);roadDashes.push(dash);
 }
 for(const x of [-2,0,2]){const line=new THREE.Mesh(new THREE.BoxGeometry(.025,.02,130),new THREE.MeshBasicMaterial({color:x===0?0x38436c:0x253251}));line.position.set(x,.015,-42);scene.add(line)}
