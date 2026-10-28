@@ -49,3 +49,9 @@
 .preview-caption{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;color:#aaa9c2;font-size:10px}.preview-caption b{color:#c2b2ff;font-size:17px}
 @media(max-width:760px){.spotlight-section{grid-template-columns:1fr;padding:21px;gap:18px}.spotlight-copy p{max-width:none}.preview-arena{height:190px}.spotlight-copy h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.brick-scene b,.reaction-scene,.reaction-scene span,.reaction-scene i,.mole-scene b,.preview-ball,.preview-paddle,.preview-block,.preview-combo{animation:none!important}}
+
+/* Local illustrated cover assets */
+.game-cover{isolation:isolate;background:#191a28}
+.cover-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .35s}
+.game-card:hover .cover-art{transform:scale(1.055);filter:saturate(1.12) brightness(1.06)}
+.game-cover .cover-badge{z-index:2;box-shadow:0 4px 16px #0004}
