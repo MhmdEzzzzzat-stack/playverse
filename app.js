@@ -44,8 +44,14 @@
     });
     empty.hidden = count > 0;
   }
-  $("[data-jump-category]").forEach(link => link.addEventListener("click", () => { const target = link.dataset.jumpCategory; activeFilter = target; $(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === target)); filterGames(); }));
-  $(".filter-chip").forEach(button => button.addEventListener("click", () => {
+  $$("[data-jump-category]").forEach(link => link.addEventListener("click", () => {
+    const target = link.dataset.jumpCategory;
+    if (!["All","Arcade","Puzzle","Memory","Classic"].includes(target)) return;
+    activeFilter = target;
+    $$(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === target));
+    filterGames();
+  }));
+  $$(".filter-chip").forEach(button => button.addEventListener("click", () => {
     activeFilter = button.dataset.filter;
     $$(".filter-chip").forEach(item => item.classList.toggle("selected", item === button));
     filterGames();
