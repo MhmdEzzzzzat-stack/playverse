@@ -74,7 +74,7 @@
     section.hidden = container.children.length === 0;
   }
   renderRecentlyPlayed();
-  $("#popularGames [data-recommend]").forEach(link => link.addEventListener("click", () => {
+  $$("#popularGames [data-recommend]").forEach(link => link.addEventListener("click", () => {
     const card = $$(".game-card").find(item => item.dataset.game === link.dataset.recommend);
     if (!card) return;
     const launch = card.querySelector("[data-launch]");
@@ -158,11 +158,11 @@
     document.body.classList.remove("modal-open"); currentGame = null; snakeState = null;
   }
   function restartGame() { if (currentGame) launchGame(currentGame); }
-  $(".game-card a.play-button").forEach(link => link.addEventListener("click", () => {
+  $$(".game-card a.play-button").forEach(link => link.addEventListener("click", () => {
     const id = link.closest(".game-card").dataset.game;
     saveRecentlyPlayed(id);
   }));
-  $("[data-launch]").forEach(button => button.addEventListener("click", () => launchGame(button.dataset.launch)));
+  $$("[data-launch]").forEach(button => button.addEventListener("click", () => launchGame(button.dataset.launch)));
   $("#closeModal").addEventListener("click", closeGame);
   $("#restartGame").addEventListener("click", restartGame);
   modal.addEventListener("click", event => { if (event.target.matches("[data-close]")) closeGame(); });
