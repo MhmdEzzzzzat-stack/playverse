@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://playverse-6a7.pages.dev/</loc>
-  </url>
+  <url><loc>https://playverse-6a7.pages.dev/</loc></url>
+  <url><loc>https://playverse-6a7.pages.dev/breakout.html</loc></url>
+  <url><loc>https://playverse-6a7.pages.dev/minesweeper.html</loc></url>
+  <url><loc>https://playverse-6a7.pages.dev/reaction-test.html</loc></url>
+  <url><loc>https://playverse-6a7.pages.dev/whack-a-mole.html</loc></url>
 </urlset>
