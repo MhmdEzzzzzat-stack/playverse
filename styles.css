@@ -73,3 +73,6 @@
 .recently-section[hidden]{display:none}
 @media(max-width:900px){.recommendation-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.recommendations-section{margin:0 14px 24px}.mini-section-heading h2{font-size:22px}.recommendation-row{gap:8px}.recommendation-card{gap:8px;padding:10px}.recommendation-icon{width:34px;height:34px;flex-basis:34px;font-size:18px}.recommendation-card strong{font-size:11px}.recommendation-card small{font-size:8px}.recommendation-card>b{font-size:9px}}
+
+.cover-pong{background:radial-gradient(circle at 50% 40%,#294a7e,#171d3d)}.cover-flappy{background:radial-gradient(circle at 50% 35%,#5b9c8b,#1b3e47)}.cover-simon{background:radial-gradient(circle at 50% 40%,#754a9a,#241d43)}.cover-tetris{background:radial-gradient(circle at 50% 35%,#b36e55,#3d244d)}
+.emoji-cover{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(48px,6vw,78px);filter:drop-shadow(0 12px 15px #0005);transition:transform .3s}.game-card:hover .emoji-cover{transform:scale(1.12) rotate(-4deg)}
