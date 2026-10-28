@@ -322,5 +322,43 @@
     gameCleanup=()=>{clearInterval(timer);document.removeEventListener("keydown",keydown);};
   }
 
+  // Load real playable-game pages only on hover/focus, keeping the initial page lightweight.
+  const previewTimers = new WeakMap();
+  $(".game-card[data-preview-src]").forEach(card => {
+    const cover = $(".game-cover", card);
+    if (!cover) return;
+    const label = document.createElement("span");
+    label.className = "preview-live-label";
+    label.textContent = "LIVE PREVIEW";
+    cover.append(label);
+    function startPreview() {
+      const pending = previewTimers.get(card);
+      if (pending) clearTimeout(pending);
+      if (card.querySelector(".game-preview-frame") || window.matchMedia("(hover: none)").matches) return;
+      const frame = document.createElement("iframe");
+      frame.className = "game-preview-frame";
+      frame.src = card.dataset.previewSrc;
+      frame.title = $(".game-info h3", card)?.textContent + " live preview";
+      frame.loading = "eager";
+      frame.setAttribute("sandbox", "allow-scripts");
+      frame.setAttribute("aria-hidden", "true");
+      cover.append(frame);
+      card.classList.add("preview-active");
+    }
+    function stopPreview() {
+      const timer = setTimeout(() => {
+        card.querySelector(".game-preview-frame")?.remove();
+        card.classList.remove("preview-active");
+      }, 220);
+      previewTimers.set(card, timer);
+    }
+    card.addEventListener("pointerenter", startPreview);
+    card.addEventListener("pointerleave", stopPreview);
+    card.addEventListener("focusin", startPreview);
+    card.addEventListener("focusout", event => {
+      if (!card.contains(event.relatedTarget)) stopPreview();
+    });
+  });
+
   syncFavorites(); filterGames();
 })();
