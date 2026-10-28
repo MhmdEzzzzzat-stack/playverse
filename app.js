@@ -31,6 +31,62 @@
     favoritesToggle.textContent = favoritesOnly ? "♥" : "♡";
     favoritesToggle.setAttribute("aria-label", favoritesOnly ? "Show all games" : "Show favorites");
   }
+  const recentKey = "playverse-recently-played";
+  let recentlyPlayed = [];
+  try { recentlyPlayed = JSON.parse(localStorage.getItem(recentKey) || "[]").filter(id => typeof id === "string"); } catch (_) {}
+  function saveRecentlyPlayed(id) {
+    recentlyPlayed = [id, ...recentlyPlayed.filter(item => item !== id)].slice(0, 4);
+    try { localStorage.setItem(recentKey, JSON.stringify(recentlyPlayed)); } catch (_) {}
+    renderRecentlyPlayed();
+  }
+  function renderRecentlyPlayed() {
+    const section = $("#recentlyPlayedSection");
+    const container = $("#recentlyPlayedGames");
+    if (!section || !container) return;
+    const cards = $(".game-card");
+    container.innerHTML = "";
+    recentlyPlayed.forEach(id => {
+      const card = cards.find(item => item.dataset.game === id);
+      if (!card) return;
+      const link = document.createElement("a");
+      link.className = "recommendation-card";
+      link.href = "#games";
+      const icon = document.createElement("span");
+      icon.className = "recommendation-icon";
+      icon.textContent = ({ "2048":"🔢", snake:"🐍", memory:"🧠", tictactoe:"⭕", breakout:"🧱", minesweeper:"💣", reaction:"⚡", whack:"🔨" })[id] || "🎮";
+      const details = document.createElement("span");
+      const title = document.createElement("strong");
+      title.textContent = card.querySelector("h3").textContent;
+      const subtitle = document.createElement("small");
+      subtitle.textContent = card.querySelector(".category-tag").textContent + " · Continue playing";
+      details.append(title, subtitle);
+      const action = document.createElement("b");
+      action.textContent = "Play ↗";
+      link.append(icon, details, action);
+      link.addEventListener("click", event => {
+        const launch = card.querySelector("[data-launch]");
+        const href = card.querySelector("a.play-button");
+        if (launch) { event.preventDefault(); launch.click(); }
+        else if (href) { event.preventDefault(); window.location.href = href.getAttribute("href"); }
+      });
+      container.append(link);
+    });
+    section.hidden = container.children.length === 0;
+  }
+  renderRecentlyPlayed();
+  $("#popularGames [data-recommend]").forEach(link => link.addEventListener("click", () => {
+    const card = $(".game-card").find(item => item.dataset.game === link.dataset.recommend);
+    if (!card) return;
+    const launch = card.querySelector("[data-launch]");
+    const href = card.querySelector("a.play-button");
+    if (launch) { launch.click(); }
+    else if (href) { window.location.href = href.getAttribute("href"); }
+  }));
+  $("#clearRecentlyPlayed")?.addEventListener("click", () => {
+    recentlyPlayed = [];
+    try { localStorage.removeItem(recentKey); } catch (_) {}
+    renderRecentlyPlayed();
+  });
   function filterGames() {
     const term = search.value.trim().toLowerCase();
     let count = 0;
@@ -81,6 +137,7 @@
     tictactoe: {title:"Tic Tac Toe", hint:"You're ✕. Get three in a row before the computer."}
   };
   function launchGame(id) {
+    saveRecentlyPlayed(id);
     currentGame = id;
     gameCleanup();
     gameCleanup = () => {};
