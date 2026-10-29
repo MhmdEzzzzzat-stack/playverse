@@ -517,15 +517,19 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
       </div>
     </section>
   
-<section id="partner-library" aria-labelledby="partner-library-title" style="max-width:1400px;margin:0 auto;padding:24px clamp(16px,4vw,54px) 52px">
-  <div style="position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:clamp(22px,4vw,38px);border:1px solid rgba(161,138,255,.28);border-radius:24px;background:radial-gradient(ellipse at 90% 0%,rgba(161,138,255,.2),transparent 48%),linear-gradient(135deg,#171827,#202038)">
-    <div style="max-width:720px">
-      <p style="margin:0 0 10px;color:#b8a6ff;font-size:11px;font-weight:800;letter-spacing:.16em">PARTNER LIBRARY</p>
-      <h2 id="partner-library-title" style="margin:0 0 10px;font-size:clamp(23px,3vw,34px);line-height:1.15">Explore 500+ more browser games</h2>
-      <p style="margin:0;color:#b9b9cd;line-height:1.7">Discover the MadKidGames collection across racing, action, puzzles, sports, and more. Games are hosted by the provider and open through its official catalog.</p>
-    </div>
-    <a href="madkid-catalog.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 19px;border-radius:12px;background:#a18aff;color:#171326;text-decoration:none;font-weight:800;white-space:nowrap">Explore MadKidGames <span aria-hidden="true">↗</span></a>
+<section class="games-section" id="partner-library" aria-labelledby="partner-library-title">
+  <div class="section-heading"><div><div class="eyebrow">PARTNER GAME LIBRARY</div><h2 id="partner-library-title">Discover <span class="gradient-text">509 more games.</span></h2><p id="madkidStatus">Loading games from the MadKidGames catalog…</p></div><div class="search-wrap"><span>⌕</span><input id="madkidSearch" type="search" placeholder="Search 509 games..." aria-label="Search MadKidGames games"></div></div>
+  <div class="filter-row" id="madkidFilters" role="group" aria-label="Filter partner games">
+    <button class="filter-chip selected" type="button" data-madkid-filter="All">✦ All games</button>
+    <button class="filter-chip" type="button" data-madkid-filter="Action">⚔ Action</button>
+    <button class="filter-chip" type="button" data-madkid-filter="Racing">🏎 Racing</button>
+    <button class="filter-chip" type="button" data-madkid-filter="Puzzle">🧩 Puzzle</button>
+    <button class="filter-chip" type="button" data-madkid-filter="Sports">⚽ Sports</button>
+    <button class="filter-chip" type="button" data-madkid-filter="Kids">🎨 Kids</button>
   </div>
+  <div class="games-grid" id="madkidGrid" aria-live="polite"></div>
+  <div id="madkidLoadMoreWrap" style="display:flex;justify-content:center;padding:26px 0 8px"><button class="filter-chip" id="madkidLoadMore" type="button">Load more games</button></div>
+  <p id="madkidError" hidden style="padding:16px;border-radius:12px;background:rgba(255,255,255,.06)">Couldn’t load the catalog right now. <a href="https://www.madkidgames.com/html5-games" target="_blank" rel="noopener noreferrer">Open MadKidGames</a>.</p>
 </section>
 <footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
   <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
