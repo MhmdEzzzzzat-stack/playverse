@@ -478,38 +478,6 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
 
     
     </section>
-    <section class="requested-games" id="requested-games" aria-label="Requested game collection">
-      <div class="requested-head"><div><span class="eyebrow">YOUR GAME LIST</span><h2>Requested <span class="gradient-text">24 Games</span></h2><p>Games are listed by their requested names. Only games with a verified playable embed are enabled; the rest stay marked until a working authorized source is confirmed.</p></div><span class="trending-count">24 TITLES</span></div>
-      <div class="requested-grid">
-        <article class="requested-card available requested-card-with-cover"><img class="requested-game-cover" src="https://www.madkidgames.com/games/offroad-outlaws/thumb_2.jpg" alt="Offroad Outlaws game cover" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://www.madkidgames.com/images/site-logo-100511.png'"><strong>Offroad Outlaws</strong><span>MadKidGames embed supplied</span><button type="button" class="requested-play-button" id="openOffroadGame">▶ Play here</button></article>
-        <article class="requested-card available requested-card-with-cover"><img class="requested-game-cover" src="https://www.madkidgames.com/games/subway-surfers/thumb_2.jpg" alt="Subway Surfers game cover" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://www.madkidgames.com/images/site-logo-100511.png'"><strong>Subway Surfers</strong><span>Playable embed available</span><button type="button" class="requested-play-button" id="openSubwayGame">▶ Play here</button></article>
-        <article class="requested-card"><strong>Level Devil</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Smash Karts</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Blocky Blast Puzzle</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Drive Mad</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Wave Dash Geometry Arrow</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Speedy Golf</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Gas Station</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Boomng Car Crash</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Soccer Lat 3D Football Online</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>World Craft Dream Island</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Road to Glory</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Harbor Tycoon</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Stunt Paradise</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Feudal Wars</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Free Kicks World Cup 2026</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Banner Brawl</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Escape Master</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Bunker Empire</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Dino Egg Factory</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Ultimate Plane Upgrade</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Haystack Hunter</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>River Crossing Puzzle Adventure</strong><span>Source/embedding not verified yet</span></article>
-        <article class="requested-card"><strong>Pawn to Don</strong><span>Source/embedding not verified yet</span></article>
-
-      </div>
-    </section>
-
     <section class="bottom-banner" id="about"><div class="banner-icon">✦</div><div><span class="eyebrow">SMALL BREAK. BIG ENERGY.</span><h2>Good games. Good vibes.</h2><p>PlayVerse is your growing corner of the internet for quick, free browser games.</p></div><a class="primary-button" href="#games">Find a game <span>→</span></a></section>
   </main>
     <section class="coming-soon-section" id="coming-soon" aria-label="Coming soon">
@@ -521,14 +489,6 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
   <footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
   <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
-  </div>
-  <div class="external-game-overlay" id="externalGameOverlay" role="dialog" aria-modal="true" aria-label="Subway Surfers" aria-hidden="true">
-    <section class="external-game-window">
-      <header class="external-game-head"><strong id="externalGameTitle">Game</strong><button type="button" id="closeExternalGame" aria-label="Close game">✕ Close</button></header>
-      <div class="external-game-stage" id="externalGameStage"></div>
-      <section class="game-description-panel" id="externalGameDescription"><span class="eyebrow">ABOUT THIS GAME</span><h2 id="externalGameDescriptionTitle">About the game</h2><p id="externalGameDescriptionText">Jump in and start playing.</p><p class="game-controls-note" id="externalGameControls"></p></section>
-      <footer class="external-game-foot">Game hosted by MadKidGames · If it does not load, <a id="externalGameSource" href="https://www.madkidgames.com/game/subway-surfers" target="_blank" rel="noopener noreferrer">open the game source</a>.</footer>
-    </section>
   </div>
 
   <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
