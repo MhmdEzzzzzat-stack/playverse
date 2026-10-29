@@ -24,16 +24,42 @@ export async function onRequest({ request }) {
   }
 
   try {
-    const results = await Promise.all(pages.map(async page => {
-      const sourceUrl = page === 1 ? "https://www.madkidgames.com/html5-games" : `https://www.madkidgames.com/html5-games/${page}`;
-      const response = await fetch(sourceUrl, { headers: { "User-Agent": "PlayVerse game catalog" } });
-      if (!response.ok) throw new Error("Catalog provider returned an error");
-      return { page, games: parseGames(await response.text()) };
-    }));
+    const results = [];
+    const failedPages = [];
+    // Limit upstream concurrency so a full-catalog request is less likely to time out.
+    for (let offset = 0; offset < pages.length; offset += 4) {
+      const batch = pages.slice(offset, offset + 4);
+      const batchResults = await Promise.all(batch.map(async page => {
+        const sourceUrl = page === 1 ? "https://www.madkidgames.com/html5-games" : `https://www.madkidgames.com/html5-games/${page}`;
+        try {
+          const response = await fetch(sourceUrl, {
+            headers: { "User-Agent": "PlayVerse game catalog", "Accept": "text/html" },
+            cf: { cacheTtl: 3600, cacheEverything: true }
+          });
+          if (!response.ok) throw new Error("Catalog provider returned an error");
+          const games = parseGames(await response.text());
+          if (!games.length) throw new Error("No games parsed");
+          return { page, games };
+        } catch {
+          failedPages.push(page);
+          return { page, games: [] };
+        }
+      }));
+      results.push(...batchResults);
+    }
     const unique = new Map();
     for (const result of results) for (const game of result.games) if (!unique.has(game.slug)) unique.set(game.slug, game);
-    return Response.json({ pages: pages.length, total: unique.size, games: [...unique.values()] }, { headers });
+    if (!unique.size) {
+      return Response.json({ error: "Could not reach game catalog", failedPages }, { status: 502, headers: { ...headers, "Cache-Control": "public, max-age=60" } });
+    }
+    return Response.json({
+      pages: pages.length - failedPages.length,
+      requestedPages: pages.length,
+      failedPages,
+      total: unique.size,
+      games: [...unique.values()]
+    }, { headers });
   } catch {
-    return Response.json({ error: "Could not reach game catalog" }, { status: 502, headers: { "Cache-Control": "public, max-age=300", "Access-Control-Allow-Origin": "*" } });
+    return Response.json({ error: "Could not reach game catalog" }, { status: 502, headers: { "Cache-Control": "public, max-age=60", "Access-Control-Allow-Origin": "*" } });
   }
 }
