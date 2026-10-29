@@ -132,10 +132,10 @@
   });
 
   const gameInfo = {
-    "2048": {title:"2048", hint:"Use arrow keys or swipe to slide matching tiles together."},
-    snake: {title:"Neon Snake", hint:"Use arrow keys, WASD, or the on-screen arrows."},
-    memory: {title:"Memory Match", hint:"Flip two cards and find all matching pairs."},
-    tictactoe: {title:"Tic Tac Toe", hint:"You're ✕. Get three in a row before the computer."}
+    "2048": {title:"2048", hint:"2048 is a number puzzle: slide matching tiles together to combine them and reach 2048. Use the arrow keys or swipe."},
+    snake: {title:"Neon Snake", hint:"Guide the neon snake, collect food, and avoid walls or your own tail. Use arrow keys or WASD."},
+    memory: {title:"Memory Match", hint:"Flip two cards at a time and remember their positions to find all six matching pairs."},
+    tictactoe: {title:"Tic Tac Toe", hint:"Play against the computer and line up three marks horizontally, vertically, or diagonally to win."}
   };
   function launchGame(id) {
     saveRecentlyPlayed(id);
