@@ -31,63 +31,6 @@
     favoritesToggle.textContent = favoritesOnly ? "♥" : "♡";
     favoritesToggle.setAttribute("aria-label", favoritesOnly ? "Show all games" : "Show favorites");
   }
-  const recentKey = "playverse-recently-played";
-  let recentlyPlayed = [];
-  try { recentlyPlayed = JSON.parse(localStorage.getItem(recentKey) || "[]").filter(id => typeof id === "string"); } catch (_) {}
-  function saveRecentlyPlayed(id) {
-    recentlyPlayed = [id, ...recentlyPlayed.filter(item => item !== id)].slice(0, 4);
-    try { localStorage.setItem(recentKey, JSON.stringify(recentlyPlayed)); } catch (_) {}
-    renderRecentlyPlayed();
-  }
-  function renderRecentlyPlayed() {
-    const section = $("#recentlyPlayedSection");
-    const container = $("#recentlyPlayedGames");
-    if (!section || !container) return;
-    const cards = $$(".game-card");
-    container.innerHTML = "";
-    recentlyPlayed.forEach(id => {
-      const card = cards.find(item => item.dataset.game === id);
-      if (!card) return;
-      const link = document.createElement("a");
-      link.className = "recommendation-card";
-      link.href = "#games";
-      const icon = document.createElement("span");
-      icon.className = "recommendation-icon";
-      icon.textContent = ({ "2048":"🔢", snake:"🐍", memory:"🧠", tictactoe:"⭕", breakout:"🧱", minesweeper:"💣", reaction:"⚡", whack:"🔨" })[id] || "🎮";
-      const details = document.createElement("span");
-      const title = document.createElement("strong");
-      title.textContent = card.querySelector("h3").textContent;
-      const subtitle = document.createElement("small");
-      subtitle.textContent = card.querySelector(".category-tag").textContent + " · Continue playing";
-      details.append(title, subtitle);
-      const action = document.createElement("b");
-      action.textContent = "Play ↗";
-      link.append(icon, details, action);
-      link.addEventListener("click", event => {
-        const launch = card.querySelector("[data-launch]");
-        const href = card.querySelector("a.play-button");
-        if (launch) { event.preventDefault(); launch.click(); }
-        else if (href) { event.preventDefault(); window.location.href = href.getAttribute("href"); }
-      });
-      container.append(link);
-    });
-    section.hidden = container.children.length === 0;
-  }
-  renderRecentlyPlayed();
-  $$("#popularGames [data-recommend]").forEach(link => link.addEventListener("click", () => {
-    const card = $$(".game-card").find(item => item.dataset.game === link.dataset.recommend);
-    if (!card) return;
-    const launch = card.querySelector("[data-launch]");
-    const href = card.querySelector("a.play-button");
-    if (launch) { launch.click(); }
-    else if (href) { window.location.href = href.getAttribute("href"); }
-  }));
-  $$("[data-track-game]").forEach(link => link.addEventListener("click", () => saveRecentlyPlayed(link.dataset.trackGame)));
-  $("#clearRecentlyPlayed")?.addEventListener("click", () => {
-    recentlyPlayed = [];
-    try { localStorage.removeItem(recentKey); } catch (_) {}
-    renderRecentlyPlayed();
-  });
   function filterGames() {
     const term = search.value.trim().toLowerCase();
     let count = 0;
@@ -101,13 +44,6 @@
     });
     empty.hidden = count > 0;
   }
-  $$("[data-jump-category]").forEach(link => link.addEventListener("click", () => {
-    const target = link.dataset.jumpCategory;
-    if (!["All","Arcade","Puzzle","Memory","Classic"].includes(target)) return;
-    activeFilter = target;
-    $$(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === target));
-    filterGames();
-  }));
   $$(".filter-chip").forEach(button => button.addEventListener("click", () => {
     activeFilter = button.dataset.filter;
     $$(".filter-chip").forEach(item => item.classList.toggle("selected", item === button));
@@ -115,28 +51,11 @@
   }));
   search.addEventListener("input", filterGames);
   favoritesToggle.addEventListener("click", () => { favoritesOnly = !favoritesOnly; syncFavorites(); filterGames(); $("#games").scrollIntoView({behavior:"smooth"}); });
-  // Delegate card actions so dynamically loaded catalog games work too.
-  grid.addEventListener("click", event => {
-    const playLink = event.target.closest("a.play-button, a.game-cover");
-    if (playLink && grid.contains(playLink)) {
-      const card = playLink.closest(".game-card");
-      if (card?.dataset.game) saveRecentlyPlayed(card.dataset.game);
-      return;
-    }
-    const button = event.target.closest(".favorite-button");
-    if (!button || !grid.contains(button)) return;
-    event.preventDefault();
-    event.stopPropagation();
-    const card = button.closest(".game-card");
-    if (!card) return;
-    const id = card.dataset.game;
+  $$(".favorite-button").forEach(button => button.addEventListener("click", () => {
+    const id = button.closest(".game-card").dataset.game;
     if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
     saveFavorites(); syncFavorites(); filterGames();
-  });
-  document.addEventListener("playverse:games-added", () => {
-    syncFavorites();
-    filterGames();
-  });
+  }));
   $("#resetFilters").addEventListener("click", () => {
     search.value = ""; activeFilter = "All"; favoritesOnly = false;
     $$(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === "All"));
@@ -149,13 +68,12 @@
   });
 
   const gameInfo = {
-    "2048": {title:"2048", hint:"2048 is a number puzzle: slide matching tiles together to combine them and reach 2048. Use the arrow keys or swipe."},
-    snake: {title:"Neon Snake", hint:"Guide the neon snake, collect food, and avoid walls or your own tail. Use arrow keys or WASD."},
-    memory: {title:"Memory Match", hint:"Flip two cards at a time and remember their positions to find all six matching pairs."},
-    tictactoe: {title:"Tic Tac Toe", hint:"Play against the computer and line up three marks horizontally, vertically, or diagonally to win."}
+    "2048": {title:"2048", hint:"Use arrow keys or swipe to slide matching tiles together."},
+    snake: {title:"Neon Snake", hint:"Use arrow keys, WASD, or the on-screen arrows."},
+    memory: {title:"Memory Match", hint:"Flip two cards and find all matching pairs."},
+    tictactoe: {title:"Tic Tac Toe", hint:"You're ✕. Get three in a row before the computer."}
   };
   function launchGame(id) {
-    saveRecentlyPlayed(id);
     currentGame = id;
     gameCleanup();
     gameCleanup = () => {};
@@ -176,7 +94,7 @@
     document.body.classList.remove("modal-open"); currentGame = null; snakeState = null;
   }
   function restartGame() { if (currentGame) launchGame(currentGame); }
-  $("[data-launch]").forEach(button => button.addEventListener("click", () => { window.location.href = "play.html?source=native&game=" + encodeURIComponent(button.dataset.launch); }));
+  $$("[data-launch]").forEach(button => button.addEventListener("click", () => launchGame(button.dataset.launch)));
   $("#closeModal").addEventListener("click", closeGame);
   $("#restartGame").addEventListener("click", restartGame);
   modal.addEventListener("click", event => { if (event.target.matches("[data-close]")) closeGame(); });
@@ -334,44 +252,6 @@
     document.addEventListener("keydown",keydown);draw();timer=setInterval(tick,115);
     gameCleanup=()=>{clearInterval(timer);document.removeEventListener("keydown",keydown);};
   }
-
-  // Load real playable-game pages only on hover/focus, keeping the initial page lightweight.
-  const previewTimers = new WeakMap();
-  $(".game-card[data-preview-src]").forEach(card => {
-    const cover = $(".game-cover", card);
-    if (!cover) return;
-    const label = document.createElement("span");
-    label.className = "preview-live-label";
-    label.textContent = "LIVE PREVIEW";
-    cover.append(label);
-    function startPreview() {
-      const pending = previewTimers.get(card);
-      if (pending) clearTimeout(pending);
-      if (card.querySelector(".game-preview-frame") || window.matchMedia("(hover: none)").matches) return;
-      const frame = document.createElement("iframe");
-      frame.className = "game-preview-frame";
-      frame.src = card.dataset.previewSrc + "?preview=1";
-      frame.title = $(".game-info h3", card)?.textContent + " live preview";
-      frame.loading = "eager";
-      frame.setAttribute("sandbox", "allow-scripts");
-      frame.setAttribute("aria-hidden", "true");
-      cover.append(frame);
-      card.classList.add("preview-active");
-    }
-    function stopPreview() {
-      const timer = setTimeout(() => {
-        card.querySelector(".game-preview-frame")?.remove();
-        card.classList.remove("preview-active");
-      }, 220);
-      previewTimers.set(card, timer);
-    }
-    card.addEventListener("pointerenter", startPreview);
-    card.addEventListener("pointerleave", stopPreview);
-    card.addEventListener("focusin", startPreview);
-    card.addEventListener("focusout", event => {
-      if (!card.contains(event.relatedTarget)) stopPreview();
-    });
-  });
 
   syncFavorites(); filterGames();
 })();
