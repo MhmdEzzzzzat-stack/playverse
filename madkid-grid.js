@@ -5,9 +5,10 @@
   const status = document.getElementById("madkidStatus");
   if (!grid || !status) return;
   const loadMore = document.getElementById("madkidLoadMore");
-  const seen = new Set([...grid.querySelectorAll("[data-game]")].map(card => card.dataset.game.replace(/^madkid-/, "")));
+  const seen = new Set([...grid.querySelectorAll('a[href*="source=madkid&game="]')].map(link => {
+    try { return new URL(link.href, location.href).searchParams.get("game") || ""; } catch (_) { return ""; }
+  }).filter(Boolean));
   let page = 1, loading = false, finished = false, loaded = 0;
-  const pageSize = 48;
   const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   function card(game) {
     const title=escapeHtml(game.title), slug=encodeURIComponent(game.slug), image=escapeHtml(game.image);
@@ -20,8 +21,12 @@
   }
   function applySearch() {
     const term=(search?.value || "").trim().toLowerCase();
+    const selected=document.querySelector("[data-filter].selected[data-filter]");
+    const category=selected?.dataset.filter || "All";
     grid.querySelectorAll(".madkid-card").forEach(c => {
-      c.hidden=!!term && !c.dataset.name.includes(term) && !c.querySelector("h3").textContent.toLowerCase().includes(term);
+      const matchesTerm=!term || c.dataset.name.includes(term) || c.querySelector("h3").textContent.toLowerCase().includes(term);
+      const matchesCategory=category==="All" || c.dataset.category===category;
+      c.hidden=!(matchesTerm && matchesCategory);
     });
     updateStatus();
   }
@@ -50,14 +55,9 @@
       if(loadMore) { loadMore.disabled=false; loadMore.textContent=finished?"All catalog pages checked":"Load more games"; loadMore.hidden=finished; }
     }
   }
-  // One unified grid and one search/filter system for native and partner games.
-  search?.addEventListener("input",applySearch);
-  document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListener("click",()=>{
-    const category=button.dataset.filter;
-    grid.querySelectorAll(".madkid-card").forEach(c=>c.hidden=category!=="All"&&c.dataset.category!==category);
-    applySearch();
-  }));
-  // The catalog's paging control is injected into the same grid section, not a separate library.
+  // The existing PlayVerse search and category controls are shared by native and partner cards.
+  // Re-apply their current state whenever a new batch arrives.
+  // The catalog paging control sits below the unified game grid.
   if(loadMore) loadMore.addEventListener("click",()=>loadPage());
   loadPage().then(()=>{ if(!finished) loadPage(); });
 })();
