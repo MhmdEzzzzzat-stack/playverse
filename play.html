@@ -63,6 +63,21 @@ body{background:#10111b;color:var(--pv-ink)}
 .footer-line{border-color:var(--pv-border);color:#a3a4b9}
 @media(max-width:1000px){.player-side,.below-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.play-header{height:60px}.play-main{padding:14px 10px 30px}.play-titlebar{margin-bottom:12px}.play-titlebar h1{font-size:26px}.player-stage{height:62vh;min-height:340px;max-height:650px}.player-toolbar{height:46px}.player-icon{width:36px;height:34px}.player-side,.below-grid{grid-template-columns:1fr}.side-card{padding:15px}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.play-header-actions .pv-button{min-height:38px}}
+
+/* Consistent game canvas sizing across hosted games and fullscreen. */
+.player-layout{grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+.player-column{min-width:0;width:100%}
+.player-shell{width:100%;min-width:0}
+.player-stage{width:100%;height:clamp(420px, min(68vw, 760px), 760px);min-height:420px;overflow:hidden;background:#080a10;position:relative;isolation:isolate}
+.player-stage iframe{display:block;position:absolute;inset:0;width:100%;height:100%;min-width:0;min-height:0;border:0;margin:0;padding:0;background:#080a10}
+.player-stage:fullscreen{position:fixed;inset:0;width:100vw;height:100vh;min-height:0;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:#000;overflow:hidden}
+.player-stage:fullscreen iframe{position:absolute;inset:0;width:100%;height:100%;min-width:0;min-height:0;border:0}
+.player-stage:fullscreen .native-stage{width:100%;height:100%;min-height:0;display:grid;place-items:center;overflow:auto}
+.player-stage:fullscreen .native-inner{max-width:min(100vw,680px);max-height:100vh}
+.player-toolbar-actions{flex-shrink:0}
+.player-icon{display:inline-grid;place-items:center;line-height:1}
+@media(max-width:1000px){.player-layout{grid-template-columns:minmax(0,1fr)}.player-stage{height:clamp(380px,68vw,680px);min-height:380px}}
+@media(max-width:650px){.player-stage{height:68svh;height:68vh;min-height:320px;max-height:620px}.player-shell{border-radius:12px}.player-toolbar{padding:0 10px}.player-stage:fullscreen{height:100dvh;height:100vh}}
 </style></head>
 <body>
 <header class="play-header"><a class="play-brand" href="index.html"><img src="logo.svg" alt=""><span>play<em>verse</em></span></a><div class="play-header-actions"><a class="pv-button primary" href="index.html#games">← All games</a></div></header>
@@ -123,7 +138,7 @@ function makeMemory(){cleanup();root.innerHTML="";root.append(status);boardEl=do
 function makeTTT(){cleanup();root.innerHTML="";root.append(status);boardEl=document.createElement("div");boardEl.className="native-board ttt-board";root.append(boardEl);let b=Array(9).fill(""),ended=false;const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];function winner(){for(const l of wins)if(b[l[0]]&&l.every(i=>b[i]===b[l[0]]))return b[l[0]];return b.every(Boolean)?"draw":""}function render(){boardEl.innerHTML="";b.forEach((v,i)=>{const c=document.createElement("button");c.className="ttt-cell";c.textContent=v;c.disabled=ended||!!v;c.addEventListener("click",()=>move(i));boardEl.append(c)})}function finish(r){ended=true;status.textContent=r==="draw"?"It's a draw!":r==="X"?"You win!":"Computer wins this round.";render()}function move(i){if(ended||b[i])return;b[i]="X";let r=winner();if(r)return finish(r);const empt=b.map((v,j)=>v?-1:j).filter(j=>j>=0);function winSpot(mark){for(const j of empt){b[j]=mark;const w=wins.some(l=>l.every(k=>b[k]===mark));b[j]="";if(w)return j}return -1}let pick=winSpot("O");if(pick<0)pick=winSpot("X");if(pick<0&&empt.includes(4))pick=4;if(pick<0)pick=empt[Math.floor(Math.random()*empt.length)];if(pick>=0)b[pick]="O";r=winner();if(r)return finish(r);status.textContent="Your turn — you are X.";render()}status.textContent="Your turn — you are X.";root.append(actions);render()}
 function start(){if(slug==="snake")makeSnake();else if(slug==="memory")makeMemory();else if(slug==="tictactoe")makeTTT();else make2048()}reset.addEventListener("click",start);start()}
 function load(){cleanup();if(source==="native")makeNative();else loadHosted()}load();
-async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen()}catch(e){if(frame&&frame.requestFullscreen)try{await frame.requestFullscreen()}catch(_){}}}
+async function fullscreen(){try{if(document.fullscreenElement){await document.exitFullscreen();return}if(source!=="native"&&frame&&frame.requestFullscreen){await frame.requestFullscreen();return}await stage.requestFullscreen()}catch(e){try{if(stage.requestFullscreen)await stage.requestFullscreen()}catch(_){}}}
 document.getElementById("expandButton").addEventListener("click",fullscreen);document.getElementById("reloadButton").addEventListener("click",()=>{if(source==="native")load();else if(frame)frame.src=frame.src});document.addEventListener("fullscreenchange",()=>{document.getElementById("expandButton").textContent=document.fullscreenElement?"×":"⛶";document.getElementById("expandButton").title=document.fullscreenElement?"Exit fullscreen":"Fullscreen";});
 const related=[["8 Ball Pool","foony","8-ball-pool-online-billiards","🎱","Sports"],["Chess","foony","chess","♟","Classic"],["Ludo","foony","ludo","🎲","Classic"],["Slope Down First Trip","madkid","slope-down-first-trip","🏁","Racing"],["Short Life","madkid","short-life","⚡","Action"],["2048","native","2048","🔢","Puzzle"],["Neon Snake","native","snake","🐍","Arcade"],["Memory Match","native","memory","🧠","Puzzle"],["Tic Tac Toe","native","tictactoe","⭕","Classic"]].filter(g=>!(g[1]===source&&g[2]===slug));
 document.getElementById("relatedGames").innerHTML=related.slice(0,6).map(g=>'<a class="related-game" href="play.html?source='+g[1]+'&game='+g[2]+'"><span class="related-art">'+g[3]+'</span><span class="related-copy"><strong>'+g[0]+'</strong><small>'+g[4]+' · Play now ↗</small></span></a>').join("");
