@@ -18,7 +18,17 @@ export async function onRequest({ request }) {
       seen.add(slug);
       const low = title.toLowerCase();
       const category = /car|racing|driv|bike|truck|motor|slope|race|rider|flight|airplane/.test(low) ? "Racing" : /puzzle|mahjong|chess|word|match|brain|sort|2048|number|memory|solitaire|tiles|escape room/.test(low) ? "Puzzle" : /soccer|football|cricket|basketball|pool|golf|tennis|sport|baseball/.test(low) ? "Sports" : /toca|pepi|kids|baby|school|dress|pet|animal|family|doll|cooking|makeover/.test(low) ? "Kids" : "Action";
-      games.push({ title, slug, category, image: `https://www.madkidgames.com/games/${slug}/thumb_2.jpg`, embed: `https://www.madkidgames.com/full/${slug}`, page: `https://www.madkidgames.com/game/${slug}` });
+      // Prefer the thumbnail actually supplied by the catalog markup. Some titles do not
+      // use the conventional /games/<slug>/thumb_2.jpg path.
+      const cardMarkup = match[0];
+      const imageMatch = cardMarkup.match(/<(?:img|source)\\b[^>]*?\\b(?:data-src|data-lazy-src|src|srcset)=[\\"']([^\\"'\\s,]+)(?:[^\\"']*)[\\"']/i);
+      let image = imageMatch ? imageMatch[1].replace(/&amp;/g, "&") : "";
+      if (image.startsWith("//")) image = "https:" + image;
+      else if (image.startsWith("/")) image = "https://www.madkidgames.com" + image;
+      if (!/^https:\\/\\//i.test(image) || !/^(?:https:\\/\\/www\\.madkidgames\\.com|https:\\/\\/madkidgames\\.com)\\//i.test(image)) {
+        image = `https://www.madkidgames.com/games/${slug}/thumb_2.jpg`;
+      }
+      games.push({ title, slug, category, image, embed: `https://www.madkidgames.com/full/${slug}`, page: `https://www.madkidgames.com/game/${slug}` });
     }
     return games;
   }
