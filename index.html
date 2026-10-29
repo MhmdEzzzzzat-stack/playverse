@@ -23,6 +23,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hide retired prototype recommendations while the real-game library is being rolled out. */
+    .recommendations-section, #open-source-arcade, .spotlight-section { display: none !important; }
+    .coming-soon-section{max-width:1180px;margin:20px auto 72px;padding:0 24px}
+    .coming-soon-panel{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 26px;border:1px solid #ffffff19;border-radius:20px;background:linear-gradient(115deg,#171a2c,#121321);box-shadow:0 18px 45px #0003}
+    .coming-soon-panel .eyebrow{color:#b9a9ff;font-size:11px;font-weight:800;letter-spacing:.15em}
+    .coming-soon-panel h2{margin:8px 0;font-size:clamp(22px,3vw,30px)}
+    .coming-soon-panel p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .coming-soon-mark{flex:0 0 68px;width:68px;height:68px;display:grid;place-items:center;border:1px solid #a78bfa55;border-radius:18px;background:#8b5cf61a;color:#c4b5fd;font-size:30px}
+    @media(max-width:600px){.coming-soon-section{padding:0 15px}.coming-soon-panel{padding:19px;align-items:flex-start}.coming-soon-mark{flex-basis:48px;width:48px;height:48px;font-size:23px}}
+  </style>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -181,6 +192,12 @@
     </section>
     <section class="bottom-banner" id="about"><div class="banner-icon">✦</div><div><span class="eyebrow">SMALL BREAK. BIG ENERGY.</span><h2>Good games. Good vibes.</h2><p>PlayVerse is your growing corner of the internet for quick, free browser games.</p></div><a class="primary-button" href="#games">Find a game <span>→</span></a></section>
   </main>
+    <section class="coming-soon-section" aria-label="Coming soon">
+      <div class="coming-soon-panel">
+        <div><span class="eyebrow">COMING SOON</span><h2>More real games are on the way.</h2><p>We’re adding verified browser games with their original artwork and playable pages. No placeholder games.</p></div>
+        <div class="coming-soon-mark" aria-hidden="true">✦</div>
+      </div>
+    </section>
   <footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
   <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
