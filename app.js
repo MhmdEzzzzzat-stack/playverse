@@ -115,8 +115,14 @@
   }));
   search.addEventListener("input", filterGames);
   favoritesToggle.addEventListener("click", () => { favoritesOnly = !favoritesOnly; syncFavorites(); filterGames(); $("#games").scrollIntoView({behavior:"smooth"}); });
-  // Delegate favorite clicks so dynamically loaded catalog cards work too.
+  // Delegate card actions so dynamically loaded catalog games work too.
   grid.addEventListener("click", event => {
+    const playLink = event.target.closest("a.play-button, a.game-cover");
+    if (playLink && grid.contains(playLink)) {
+      const card = playLink.closest(".game-card");
+      if (card?.dataset.game) saveRecentlyPlayed(card.dataset.game);
+      return;
+    }
     const button = event.target.closest(".favorite-button");
     if (!button || !grid.contains(button)) return;
     event.preventDefault();
@@ -170,10 +176,6 @@
     document.body.classList.remove("modal-open"); currentGame = null; snakeState = null;
   }
   function restartGame() { if (currentGame) launchGame(currentGame); }
-  $$(".game-card a.play-button").forEach(link => link.addEventListener("click", () => {
-    const id = link.closest(".game-card").dataset.game;
-    saveRecentlyPlayed(id);
-  }));
   $("[data-launch]").forEach(button => button.addEventListener("click", () => { window.location.href = "play.html?source=native&game=" + encodeURIComponent(button.dataset.launch); }));
   $("#closeModal").addEventListener("click", closeGame);
   $("#restartGame").addEventListener("click", restartGame);
