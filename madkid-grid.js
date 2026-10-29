@@ -42,7 +42,7 @@
         added++;
       });
       applySearch();
-      status.textContent = "All available games are shown · "+(payload.total || payload.games.length)+" games";
+      status.textContent = payload.failedPages?.length ? ("Loaded "+payload.games.length+" games · "+payload.failedPages.length+" catalog page(s) could not be reached; refresh to retry.") : ("All available games are shown · "+(payload.total || payload.games.length)+" games");
       document.dispatchEvent(new CustomEvent("playverse:games-added"));
     } catch (_) {
       status.textContent = "Games could not load right now. Please refresh and try again.";
