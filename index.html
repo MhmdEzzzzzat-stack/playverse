@@ -120,13 +120,11 @@
     /* PlayVerse cleanup: one navigation, one primary library, fewer competing sections. */
     .category-bar{display:none!important}
     main{display:flex;flex-direction:column;gap:0}
-    main>.hero-featured{order:1;min-height:0;padding-top:42px;padding-bottom:24px;grid-template-columns:1.1fr .9fr;gap:24px}
-    main>.hero-featured .hero-art{height:245px}
-    main>.hero-featured h1{font-size:clamp(34px,4.2vw,52px);margin:12px 0}
-    main>.hero-featured .hero-copy>p{font-size:14px}
+    main>.hero-featured{display:none!important}
+    main>#games{order:1;margin-top:28px;padding-bottom:52px}
     main>.stats-strip{display:none!important}
     main>#recentlyPlayedSection{order:2;margin-top:18px;margin-bottom:20px}
-    main>#games{order:3;margin-top:22px;padding-bottom:52px}
+    main>#games{order:1;margin-top:28px;padding-bottom:52px}
     main>#madkid-games{order:4;margin-top:0;padding-top:12px}
     main>#coming-soon{order:5}
     main>#more-foony-games,main>#requested-games,main>#open-source-arcade,main>.spotlight-section,main>.bottom-banner,main>.browse-categories{display:none!important}
@@ -146,9 +144,6 @@
       .nav-link{font-size:12px}
       .header-actions{margin-left:auto}
       .header-cta{font-size:12px;padding:9px 11px}
-      main>.hero-featured{padding:28px 18px 12px;grid-template-columns:1fr;gap:8px;min-height:0}
-      main>.hero-featured .hero-art{height:180px;order:-1}
-      main>.hero-featured h1{font-size:clamp(32px,9vw,44px);letter-spacing:-1.8px}
       .games-section{padding-left:15px;padding-right:15px}
       .games-section .section-heading{align-items:stretch;flex-direction:column;gap:14px}
       .search-wrap{width:100%}
