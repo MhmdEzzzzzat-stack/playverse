@@ -110,3 +110,62 @@
 .game-card[data-game="neon-drift"] .game-info h3{color:#f7f5ff}
 .game-card[data-game="neon-drift"] .play-button{background:linear-gradient(100deg,#63ffe9,#9d87ff);color:#080b18;font-weight:900}
 .game-card[data-game="neon-drift"]:hover{border-color:#63ffe9;box-shadow:0 0 28px #63ffe92b,0 18px 42px #0005}
+
+
+/* Premium discovery pass: consistent card rhythm, stronger hierarchy, less dead space. */
+:root{--pv-content:1240px}
+.site-header{max-width:var(--pv-content);padding-inline:clamp(16px,3vw,36px)}
+.category-bar{max-width:var(--pv-content);padding-inline:clamp(16px,3vw,36px);gap:10px}
+.hero{max-width:var(--pv-content);min-height:390px;padding:clamp(30px,5vw,64px) clamp(18px,3vw,36px) 42px;gap:clamp(20px,4vw,64px)}
+.hero-copy{max-width:590px}
+.hero h1{max-width:600px;letter-spacing:-.055em}
+.hero-art{min-height:300px}
+.stats-strip,.browse-categories,.games-section,.popular-picks-section,.bottom-banner{max-width:var(--pv-content)}
+.stats-strip{margin-top:4px;margin-bottom:42px}
+.browse-categories{margin:0 auto 46px;padding-inline:clamp(16px,3vw,32px)}
+.category-tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.category-tile{min-height:92px;padding:17px 18px;border-radius:18px;transition:transform .2s,border-color .2s,background .2s}
+.category-tile:hover{transform:translateY(-3px);border-color:#9c7cff70;background:#201f34}
+.games-section{padding:0 clamp(16px,3vw,32px);margin:0 auto 54px}
+.section-heading{align-items:end;gap:24px;margin-bottom:24px}
+.section-heading h2,.mini-section-heading h2{letter-spacing:-.045em}
+.filter-row{gap:9px;margin-bottom:20px;flex-wrap:wrap}
+.filter-chip{padding:9px 15px;min-height:40px;border-radius:999px}
+.games-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.game-card{min-width:0;border-radius:19px;overflow:hidden;transition:transform .22s,border-color .22s,box-shadow .22s}
+.game-card:hover{transform:translateY(-5px);border-color:#9c7cff75;box-shadow:0 18px 42px #0005}
+.game-cover{height:auto;aspect-ratio:1.62/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.game-cover .cover-art{width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.game-card:hover .cover-art{transform:scale(1.045)}
+.cover-badge{left:11px;top:11px;border-radius:7px;padding:6px 9px;font-size:9px;letter-spacing:.08em;backdrop-filter:blur(10px)}
+.game-info{min-height:80px;padding:14px 14px 8px;gap:10px}
+.game-info h3{font-size:15px;line-height:1.3;letter-spacing:-.02em}
+.game-info p{font-size:11px;line-height:1.5;margin-top:5px}
+.favorite-button{flex:0 0 34px;width:34px;height:34px;border-radius:11px}
+.card-bottom{padding:8px 14px 14px;gap:8px}
+.category-tag{font-size:9px;letter-spacing:.045em;max-width:calc(100% - 88px)}
+.play-button{min-height:35px;padding:0 12px;border-radius:10px;font-size:11px;white-space:nowrap}
+.popular-picks-section{margin:0 auto 58px;padding:0 clamp(16px,3vw,32px)}
+.popular-picks-section .mini-section-heading{align-items:end;margin-bottom:20px}
+.picks-note{max-width:230px;color:#9698b1;font-size:9px;font-weight:800;letter-spacing:.1em;text-align:right;line-height:1.6}
+.popular-picks-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.popular-pick{position:relative;display:grid;grid-template-columns:104px minmax(0,1fr) 22px;gap:14px;align-items:center;min-width:0;min-height:122px;padding:12px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#1a1b2a,#141521);overflow:hidden;transition:transform .2s,border-color .2s,background .2s}
+.popular-pick:hover{transform:translateY(-3px);border-color:#9c7cff70;background:linear-gradient(145deg,#222039,#171827)}
+.pick-art{position:relative;display:grid;place-items:center;align-self:stretch;min-height:96px;border-radius:12px;overflow:hidden;background:#20233c}
+.pick-art:before,.pick-art:after,.pick-art-lines{position:absolute;content:"";inset:0}
+.pick-art:before{background:radial-gradient(circle at 25% 20%,#ffffff36,transparent 45%),linear-gradient(135deg,var(--pick-a),var(--pick-b))}
+.pick-art:after{inset:auto -20% -35% 10%;height:75%;border:2px solid #ffffff3b;border-radius:50%;transform:rotate(-18deg)}
+.pick-art-mark{z-index:1;font:800 19px/1 "Space Grotesk",sans-serif;letter-spacing:-.07em;color:#fff;text-shadow:0 4px 18px #0007;transform:rotate(-7deg)}
+.pick-art-lines{z-index:1;opacity:.22;background:repeating-linear-gradient(125deg,transparent 0 12px,#fff 13px 14px,transparent 15px 24px);mix-blend-mode:overlay}
+.pick-racing{--pick-a:#f7a53b;--pick-b:#c93242}.pick-runner{--pick-a:#27b7bc;--pick-b:#3a4ed1}.pick-karts{--pick-a:#ff6e57;--pick-b:#8b45db}.pick-hook{--pick-a:#3cba92;--pick-b:#176a9d}.pick-level{--pick-a:#ff5876;--pick-b:#602c83}.pick-shell{--pick-a:#e5a83b;--pick-b:#a83e4a}
+.pick-copy{display:flex;flex-direction:column;min-width:0;gap:4px}
+.pick-copy small{color:#b4a5ff;font-size:8px;font-weight:800;letter-spacing:.08em}
+.pick-copy strong{font:700 15px/1.25 "Space Grotesk",sans-serif}
+.pick-copy>span{color:var(--muted);font-size:10px;line-height:1.45}
+.pick-open{align-self:start;color:#b4a5ff;font-size:17px}
+.coming-soon-section{max-width:var(--pv-content);margin:0 auto 64px;padding:0 clamp(16px,3vw,32px)}
+.coming-soon-panel{padding:26px 30px}
+.site-footer{max-width:var(--pv-content);margin-inline:auto;padding-inline:clamp(16px,3vw,36px)}
+@media(max-width:1050px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.popular-picks-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:350px}}
+@media(max-width:700px){.site-header{height:68px}.main-nav{gap:13px}.nav-link{font-size:11px}.hero{padding-top:32px;padding-bottom:26px;min-height:auto}.hero-art{min-height:220px}.stats-strip{margin-bottom:32px}.category-tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category-tile{min-height:82px;padding:12px}.games-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.game-info{padding:11px 10px 6px;min-height:76px}.game-info h3{font-size:13px}.game-info p{font-size:10px}.favorite-button{flex-basis:30px;width:30px;height:30px}.card-bottom{padding:7px 10px 11px;gap:5px}.category-tag{font-size:8px}.play-button{min-height:32px;padding:0 9px;font-size:10px}.popular-picks-grid{grid-template-columns:1fr;gap:10px}.popular-pick{grid-template-columns:90px minmax(0,1fr) 18px;min-height:106px;padding:10px;gap:12px}.pick-art{min-height:84px}.pick-copy strong{font-size:14px}.picks-note{display:none}.popular-picks-section .mini-section-heading{align-items:flex-start}.coming-soon-panel{padding:19px}.category-bar{gap:7px;overflow-x:auto;white-space:nowrap}.category-bar a{flex:0 0 auto}}
+@media(max-width:390px){.games-grid{gap:8px}.game-info{gap:6px}.game-info h3{font-size:12px}.game-info p{font-size:9px}.category-tag{max-width:calc(100% - 72px)}.play-button{padding:0 7px}.popular-pick{grid-template-columns:78px minmax(0,1fr) 16px}}
