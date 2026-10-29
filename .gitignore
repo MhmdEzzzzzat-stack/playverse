@@ -1,9 +1,0 @@
-# Local dependencies and generated deployment output
-node_modules/
-dist/
-
-# Local tooling and operating-system files
-.DS_Store
-Thumbs.db
-*.log
-npm-debug.log*
