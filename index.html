@@ -517,35 +517,27 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
   'keep-on-mining-worlds':{title:'Keep on Mining Worlds',embed:'https://www.madkidgames.com/full/keep-on-mining-worlds',page:'https://www.madkidgames.com/game/keep-on-mining-worlds'},
   'daily-shopping-stories':{title:'Daily Shopping Stories',embed:'https://www.madkidgames.com/full/daily-shopping-stories',page:'https://www.madkidgames.com/game/daily-shopping-stories'}
  };
- function open(id){const game=games[id];if(!game)return;title.textContent=game.title;source.href=game.page;overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(current!==game.embed){stage.replaceChildren();frame=document.createElement('iframe');frame.title=game.title;frame.src=game.embed;frame.width='100%';frame.height='100%';frame.allow='fullscreen; autoplay; gamepad';frame.allowFullscreen=true;frame.loading='eager';frame.scrolling='no';frame.referrerPolicy='no-referrer-when-downgrade';frame.style.cssText='width:100%;height:100%;display:block;border:0;background:#080910';stage.appendChild(frame);current=game.embed;}close.focus()}
+ function open(id){const game=games[id];if(!game)return;title.textContent=game.title;source.href=game.page;const info=gameDescriptions[id];if(info&&descriptionTitle&&descriptionText){descriptionTitle.textContent=info.title;descriptionText.textContent=info.description;if(descriptionControls)descriptionControls.textContent=info.controls;}overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(current!==game.embed){stage.replaceChildren();frame=document.createElement('iframe');frame.title=game.title;frame.src=game.embed;frame.width='100%';frame.height='100%';frame.allow='fullscreen; autoplay; gamepad';frame.allowFullscreen=true;frame.loading='eager';frame.scrolling='no';frame.referrerPolicy='no-referrer-when-downgrade';frame.style.cssText='width:100%;height:100%;display:block;border:0;background:#080910';stage.appendChild(frame);current=game.embed;}close.focus()}
  function shut(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
  Object.keys(games).forEach(id=>{const button=document.getElementById(id);if(button)button.addEventListener('click',()=>open(id));});
  document.querySelectorAll('[data-madkid]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.madkid)));
 
- const detailsOverlay=document.getElementById('gameDetailsOverlay');
- const detailsTitle=document.getElementById('gameDetailsTitle');
- const detailsImage=document.getElementById('gameDetailsImage');
- const detailsClose=document.getElementById('closeGameDetails');
- const detailsPlay=document.getElementById('playFromDetails');
- let selectedDetailsId='';
- document.querySelectorAll('[data-details]').forEach(button=>button.addEventListener('click',()=>{
-   selectedDetailsId=button.dataset.details;
-   const card=button.closest('.madkid-card');
-   if(!card||!detailsOverlay)return;
-   detailsTitle.textContent=card.querySelector('h3')?.textContent||'Game details';
-   detailsImage.src=card.querySelector('img')?.src||'';
-   detailsImage.alt=detailsTitle.textContent+' game cover';
-   detailsOverlay.classList.add('open');
-   detailsOverlay.setAttribute('aria-hidden','false');
-   document.body.style.overflow='hidden';
-   detailsClose.focus();
- }));
- function closeDetails(){if(!detailsOverlay)return;detailsOverlay.classList.remove('open');detailsOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
- detailsClose?.addEventListener('click',closeDetails);
- detailsOverlay?.addEventListener('click',event=>{if(event.target===detailsOverlay)closeDetails();});
- detailsPlay?.addEventListener('click',()=>{const id=selectedDetailsId;closeDetails();open(id);});
- document.addEventListener('keydown',event=>{if(event.key==='Escape'&&detailsOverlay?.classList.contains('open'))closeDetails();});
 
+ const descriptionTitle=document.getElementById('externalGameDescriptionTitle');
+ const descriptionText=document.getElementById('externalGameDescriptionText');
+ const descriptionControls=document.getElementById('externalGameControls');
+ const gameDescriptions={
+  'openSubwayGame':{title:'Subway Surfers',description:'Dash through railway tracks, dodge trains and obstacles, and collect coins while escaping the inspector.',controls:'Controls: Use the arrow keys to move and jump; collect coins and power-ups.'},
+  'openOffroadGame':{title:'Offroad Outlaws',description:'Drive across rugged terrain, navigate rough paths, and test your skills in an off-road adventure.',controls:'Controls: Follow the keyboard or on-screen controls shown in the game.'},
+  'slope-down-first-trip':{title:'Slope Down First Trip',description:'Race down a steep slope, steer around obstacles, and stay on the track for as long as possible.',controls:'Controls: Use directional keys to steer and avoid obstacles.'},
+  'parkour-jump':{title:'Parkour Jump',description:'Run, jump, and time your moves carefully as you navigate platforms and parkour challenges.',controls:'Controls: Use the controls displayed in the game to move and jump.'},
+  'short-life':{title:'Short Life',description:'Guide your character through dangerous obstacle courses and avoid traps to reach the finish.',controls:'Controls: Use the arrow keys to move and jump; watch out for hazards.'},
+  'safe-zone':{title:'Safe Zone!',description:'React quickly, find the safe area, and avoid danger as the challenge changes around you.',controls:'Controls: Follow the on-screen prompts and move quickly to safety.'},
+  'ultimate-epic-battle-war':{title:'Ultimate Epic Battle War',description:'Choose your units, build your army, and lead them into a chaotic battle for victory.',controls:'Controls: Follow the unit selection and battle controls shown in the game.'},
+  'undercover-secret-management':{title:'Undercover Secret Management',description:'Manage secret operations, make strategic decisions, and keep your plans moving forward.',controls:'Controls: Use the in-game interface to manage tasks and progress.'},
+  'keep-on-mining-worlds':{title:'Keep on Mining Worlds',description:'Mine resources, upgrade your progress, and explore new worlds in this mining adventure.',controls:'Controls: Use the in-game controls to mine, collect, and upgrade.'},
+  'daily-shopping-stories':{title:'Daily Shopping Stories',description:'Explore a colorful shopping world, visit stores, and create your own everyday shopping stories.',controls:'Controls: Follow the in-game prompts to move around and interact.'}
+ };
  close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))shut()});
 })();
 </script>
