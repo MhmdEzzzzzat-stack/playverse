@@ -14,11 +14,11 @@
   <meta property="og:url" content="https://playverse-6a7.pages.dev/">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="PlayVerse — Free Online Browser Games">
-  <meta property="og:description" content="Discover free arcade, puzzle, memory and classic browser games on PlayVerse. Play instantly on desktop or mobile.">
+  <meta property="og:description" content="Discover popular free browser games on PlayVerse. Play online games instantly on desktop or mobile.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="PlayVerse — Free Online Browser Games">
-  <meta name="twitter:description" content="Play 2048, Neon Snake, Memory Match and Tic Tac Toe for free. No downloads required.">
-  <title>PlayVerse — Free Online Browser Games</title>
+  <meta name="twitter:description" content="Discover popular free browser games on PlayVerse. No downloads required.">
+  <title>PlayVerse — Discover Free Online Browser Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -41,11 +41,11 @@
   <header class="site-header">
     <a class="brand" href="#" aria-label="PlayVerse home"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class="nav-link active" href="#games">All Games</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#coming-soon">Coming Soon</a>
+      <a class="nav-link active" href="#games">All Games</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#popular-picks">Trending</a><a class="nav-link" href="#coming-soon">Coming Soon</a>
     </nav>
     <div class="header-actions"><button class="icon-button" id="favoritesToggle" aria-pressed="false" aria-label="Show favorites" title="Favorites">♡</button><a class="header-cta" href="#games">Play now <span>↗</span></a></div>
   </header>
-  <div class="category-bar" aria-label="Browse game categories"><a href="#games" data-jump-category="All">🏠 Home</a><a href="#games" data-jump-category="Arcade">🕹️ Arcade</a><a href="#games" data-jump-category="Puzzle">🧩 Puzzle</a><a href="#games" data-jump-category="Memory">🧠 Memory</a><a href="#games" data-jump-category="Classic">⭐ Classics</a><a href="#new-games">✨ New Games</a><span class="category-bar-note">FREE BROWSER GAMES</span></div>
+  <div class="category-bar" aria-label="Browse game categories"><a href="#games" data-jump-category="All">🏠 Home</a><a href="#games" data-jump-category="Arcade">🕹️ Arcade</a><a href="#games" data-jump-category="Puzzle">🧩 Puzzle</a><a href="#games" data-jump-category="Classic">⭐ Classics</a><a href="#games" data-jump-category="Classic">⭐ Classics</a><a href="#popular-picks">🔥 Trending</a><span class="category-bar-note">FREE BROWSER GAMES</span></div>
   <main>
     <section class="hero" id="featured">
       <div class="hero-copy">
@@ -68,7 +68,7 @@
       <div class="category-tiles">
         <a class="category-tile" href="#games" data-jump-category="Arcade"><span class="category-tile-icon arcade-icon">🕹️</span><span><strong>Arcade</strong><small>Fast &amp; addictive</small></span><b>↗</b></a>
         <a class="category-tile" href="#games" data-jump-category="Puzzle"><span class="category-tile-icon puzzle-icon">🧩</span><span><strong>Puzzle</strong><small>Think it through</small></span><b>↗</b></a>
-        <a class="category-tile" href="#games" data-jump-category="Memory"><span class="category-tile-icon memory-icon">🧠</span><span><strong>Memory</strong><small>Train your brain</small></span><b>↗</b></a>
+        <a class="category-tile" href="#games" data-jump-category="Classic"><span class="category-tile-icon classic-icon">♟</span><span><strong>Board &amp; Classic</strong><small>Play your strategy</small></span><b>↗</b></a>
         <a class="category-tile" href="#games" data-jump-category="Classic"><span class="category-tile-icon classic-icon">⭐</span><span><strong>Classics</strong><small>Timeless favorites</small></span><b>↗</b></a>
       </div>
     </section>
@@ -98,6 +98,17 @@
       <div class="mini-section-heading"><div><span class="eyebrow">EXTRA ARCADE</span><h2>More games. Bigger worlds.</h2><p>Jump into a bonus collection of fast-paced arcade games, with more favorites coming to PlayVerse.</p></div><a href="arcade.html">Explore collection ↗</a></div>
       <div class="recommendation-row">
         <a class="recommendation-card" href="arcade.html"><span class="recommendation-icon">🕹️</span><span><strong>Neon Arcade Collection</strong><small>10 games · Keyboard & touch</small></span><b>Explore ↗</b></a>
+      </div>
+    </section>
+    <section class="popular-picks-section" id="popular-picks" aria-label="Trending browser games">
+      <div class="mini-section-heading"><div><span class="eyebrow">TRENDING AROUND THE WEB</span><h2>Big games, <span class="gradient-text">one click away.</span></h2><p>Popular browser games selected from established game portals.</p></div><span class="picks-note">EXTERNAL GAMES OPEN ON THEIR OFFICIAL SITE</span></div>
+      <div class="popular-picks-grid">
+        <a class="popular-pick pick-racing" href="https://poki.com/en/g/drive-mad" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">DM</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>DRIVING · PHYSICS</small><strong>Drive Mad</strong><span>Balance, speed, and impossible tracks.</span></span><span class="pick-open">↗</span></a>
+        <a class="popular-pick pick-runner" href="https://poki.com/en/g/subway-surfers" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">RUN</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>ENDLESS RUNNER</small><strong>Subway Surfers</strong><span>Dodge trains and chase a new high score.</span></span><span class="pick-open">↗</span></a>
+        <a class="popular-pick pick-karts" href="https://poki.com/en/g/smash-karts" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">KART</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>MULTIPLAYER · RACING</small><strong>Smash Karts</strong><span>Quick kart battles with other players.</span></span><span class="pick-open">↗</span></a>
+        <a class="popular-pick pick-hook" href="https://poki.com/en/g/stickman-hook" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">HOOK</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>SKILL · PHYSICS</small><strong>Stickman Hook</strong><span>Swing, release, and nail the landing.</span></span><span class="pick-open">↗</span></a>
+        <a class="popular-pick pick-level" href="https://poki.com/en/g/level-devil" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">LVL?</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>PLATFORMER · CHALLENGE</small><strong>Level Devil</strong><span>Every step might hide a trap.</span></span><span class="pick-open">↗</span></a>
+        <a class="popular-pick pick-shell" href="https://www.crazygames.com/game/shellshockersio" target="_blank" rel="noopener noreferrer"><span class="pick-art" aria-hidden="true"><span class="pick-art-mark">FPS</span><span class="pick-art-lines"></span></span><span class="pick-copy"><small>SHOOTER · MULTIPLAYER</small><strong>Shell Shockers</strong><span>Fast arena battles in your browser.</span></span><span class="pick-open">↗</span></a>
       </div>
     </section>
     <section class="games-section" id="games">
