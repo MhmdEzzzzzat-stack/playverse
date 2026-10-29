@@ -66,6 +66,13 @@
     .requested-player small{display:block;color:#a9adbf;margin:10px 2px 0}
     @media(max-width:600px){.requested-games{padding:0 14px}.requested-player iframe{min-height:360px}}
 
+  
+    .game-load-panel{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;padding:28px;background:radial-gradient(ellipse at top,#252b4d,#0b0d16 70%);border-radius:12px}
+    .game-load-panel p{max-width:480px;margin:0;color:#b9bfd3}
+    .game-load-panel a{color:#c7b8ff;font-size:.9rem}
+    .game-load-panel .primary-button{border:0;cursor:pointer}
+    .requested-player iframe[hidden]{display:none}
+
   </style>
   <script src="app.js" defer></script>
 </head>
@@ -243,7 +250,7 @@
         <article class="requested-card"><strong>Haystack Hunter</strong><span>Source/embedding not verified yet</span></article>
         <article class="requested-card"><strong>River Crossing Puzzle Adventure</strong><span>Source/embedding not verified yet</span></article>
         <article class="requested-card"><strong>Pawn to Don</strong><span>Source/embedding not verified yet</span></article>
-        <div class="requested-player" id="subway-surfers-embed"><iframe src="https://www.madkidgames.com/full/subway-surfers" title="Subway Surfers playable game" allowfullscreen loading="lazy" scrolling="no" referrerpolicy="no-referrer-when-downgrade"></iframe><small>Subway Surfers embed provided by MadKidGames. Game and third-party content remain owned by their respective rights holders.</small></div>
+        <div class="requested-player" id="subway-surfers-embed"><div class="game-load-panel" id="subwayLoadPanel"><strong>Subway Surfers</strong><p>اضغط تشغيل لتحميل اللعبة عند الطلب بدل تحميلها مع الصفحة.</p><button type="button" class="primary-button" id="loadSubwayGame">▶ تشغيل اللعبة</button><a href="https://www.madkidgames.com/game/subway-surfers" target="_blank" rel="noopener noreferrer">لو اللعبة لم تفتح، افتحها في نافذة جديدة ↗</a></div><iframe id="subwayGameFrame" data-src="https://www.madkidgames.com/full/subway-surfers" title="Subway Surfers playable game" allow="fullscreen; autoplay; gamepad" allowfullscreen loading="lazy" scrolling="no" referrerpolicy="no-referrer-when-downgrade" hidden></iframe><small>اللعبة تُحمّل فقط بعد الضغط على تشغيل. المصدر: MadKidGames.</small></div>
       </div>
     </section>
 
@@ -262,6 +269,21 @@
   </div>
   <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
 
+
+
+<script>
+(() => {
+  const button = document.getElementById('loadSubwayGame');
+  const frame = document.getElementById('subwayGameFrame');
+  const panel = document.getElementById('subwayLoadPanel');
+  if (!button || !frame || !panel) return;
+  button.addEventListener('click', () => {
+    if (!frame.src || frame.src === window.location.href) frame.src = frame.dataset.src;
+    frame.hidden = false;
+    panel.hidden = true;
+  }, { once: true });
+})();
+</script>
 
 </body>
 </html>
