@@ -565,3 +565,75 @@ body{background-color:var(--bg);background-image:radial-gradient(ellipse at 12% 
 .modal-panel{background:#111a2b;border-color:#2b3a54}.secondary-button:hover{border-color:#22d3ee}
 .ttt-cell{color:#a5b4fc}.ttt-cell:hover:not(:disabled){background:#8b5cf620}.memory-card{border-color:#8b5cf655;background:linear-gradient(145deg,#29385b,#1b2540)}
 @media(max-width:760px){.main-nav{border-top-color:rgba(148,174,215,.16)}}
+
+
+/* Accessible light theme: high-contrast text, soft surfaces, green + violet accents. */
+:root{color-scheme:light;--bg:#f5f8f2;--panel:#ffffff;--panel2:#edf3e8;--text:#17231b;--muted:#526354;--line:rgba(23,35,27,.13);--purple:#277d3c;--pink:#7c3aed;--cyan:#277d3c}
+html,body{background:#f5f8f2;color:#17231b}
+body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),transparent 34%),radial-gradient(ellipse at 90% 10%,rgba(124,58,237,.055),transparent 32%)}
+.site-header{background:rgba(255,255,255,.96);border-bottom:1px solid #dfe8db;box-shadow:0 3px 16px rgba(29,52,32,.045);backdrop-filter:blur(14px)}
+.site-header a,.site-header button{color:#17231b}
+.brand-light{color:#277d3c}
+.nav-link{color:#526354}.nav-link:hover,.nav-link.active{color:#206b34}
+.icon-button{background:#f5f8f2;border-color:#dce6d8;color:#263b2a}
+.icon-button:hover,.icon-button[aria-pressed=true]{border-color:#277d3c;color:#206b34;background:#e7f5e1}
+.header-cta,.primary-button{background:linear-gradient(110deg,#278642,#216c35);color:#fff;box-shadow:0 6px 18px #277d3c22}
+.eyebrow,.category-tag{color:#246b35}
+.gradient-text{background-image:linear-gradient(100deg,#267d3e,#6b42bd);color:transparent;background-clip:text;-webkit-background-clip:text}
+.live-dot,.online-dot{background:#278642;box-shadow:0 0 10px #27864255}
+.games-section,.madkid-library,.requested-games{color:#17231b}
+.section-heading h2,.section-heading p,.game-info h3,.game-info p{color:#17231b}
+.game-info p{color:#647267}
+.game-card,.madkid-card{background:#fff;border-color:#e0e8dc;box-shadow:0 3px 12px rgba(29,52,32,.05)}
+.game-card:hover,.madkid-card:hover,.madkid-card:focus-within{border-color:#b5d6a9;box-shadow:0 12px 26px rgba(29,52,32,.11)}
+.game-cover{background:#edf4e9}
+.search-wrap{background:#fff;border-color:#dce6d8;color:#526354}
+.search-wrap input{color:#17231b}.search-wrap input::placeholder{color:#68796b}
+.filter-chip{background:#fff;border-color:#dce6d8;color:#334438}
+.filter-chip:hover,.filter-chip.selected{background:#277d3c;border-color:#277d3c;color:#fff}
+.play-button{background:#e8f6e2;border:1px solid #cce7c2;color:#206b34}
+.play-button:hover{background:#d8efcf;border-color:#a9d39b}.play-button span{color:#206b34}
+.favorite-button{color:#526354}.favorite-button:hover,.favorite-button[aria-pressed=true]{color:#be185d}
+.madkid-card-info{background:#fff}.madkid-card-info h3{color:#17231b}
+.madkid-details{background:#f4f7f1;border-color:#d5e0d1;color:#334438}
+.madkid-details:hover{border-color:#277d3c;color:#206b34}
+.madkid-play,.requested-play-button,.local-arcade-play{background:linear-gradient(135deg,#278642,#216c35);color:#fff;box-shadow:0 4px 12px #277d3c20}
+.madkid-library p,.requested-games p{color:#526354}
+.requested-card{background:#fff;border-color:#e0e8dc;color:#17231b}
+.requested-card span{color:#526354}.requested-card a{color:#246b35}
+.requested-card.available{border-color:#b5d6a9}
+.coming-soon-panel{background:linear-gradient(115deg,#fff8df,#edf8e8);border-color:#dce8d4;box-shadow:0 8px 25px #253d2510}
+.coming-soon-panel h2{color:#17231b}.coming-soon-panel p{color:#526354}
+.coming-soon-panel .eyebrow{color:#246b35}.coming-soon-mark{background:#e0f1d8;border-color:#bdddb1;color:#277d3c}
+.trending-card,.local-arcade-card{background:#fff;border-color:#e0e8dc;color:#17231b}
+.trending-card:hover,.local-arcade-card:hover{border-color:#b5d6a9}
+.trending-card-info strong,.local-arcade-info strong{color:#17231b}
+.trending-card-info small,.local-arcade-info p{color:#526354}
+.trending-count{color:#246b35;border-color:#dce6d8}
+.trending-play{background:#277d3c;color:#fff}
+.trending-dialog{background:#fff;color:#17231b;border-color:#dce6d8}
+.trending-dialog-head a{color:#246b35}.trending-dialog-head button{background:#edf3e8;color:#17231b}
+.trending-embed-note{background:#edf3e8;color:#526354}
+.details-overlay{background:rgba(23,35,27,.58)}
+.details-panel{background:#fff;border-color:#dce6d8;color:#17231b}
+.details-body p{color:#526354}
+.details-close{background:#f4f7f1;border-color:#d5e0d1;color:#334438}
+.details-play{background:linear-gradient(135deg,#278642,#216c35);color:#fff}
+.external-game-window{background:#fff;border-color:#dce6d8}
+.external-game-head,.external-game-foot{background:#edf3e8;color:#17231b}
+.external-game-head button{background:#dfe9da;color:#17231b}
+.site-footer{background:transparent;border-top-color:#dfe8db;color:#526354}
+.site-footer .brand{color:#17231b}
+.modal-panel{background:#fff;border-color:#dce6d8;color:#17231b}
+.modal-header,.modal-footer{border-color:#e0e8dc}
+.modal-header h2{color:#17231b}.modal-footer{color:#526354}
+.secondary-button{background:#f4f7f1;border-color:#d5e0d1;color:#263b2a}
+.secondary-button:hover{border-color:#277d3c}
+.game-status{color:#246b35}
+.ttt-cell{background:#f4f7f1;border-color:#dce6d8;color:#277d3c}
+.ttt-cell:hover:not(:disabled){background:#e8f6e2}
+.memory-card{background:linear-gradient(145deg,#e7e1fb,#f3edff);border-color:#c4b5fd;color:#312e81}
+.memory-card.revealed,.memory-card.matched{background:#e8f6e2;border-color:#9dcc8c;color:#206b34}
+.snake-canvas{background:#eef5e9;border-color:#dce6d8}
+.board-2048{background:#e4e8dd}.tile-2048{background:#a9b7a0;color:#17231b}
+@media(max-width:760px){.main-nav{border-top-color:#dfe8db}}
