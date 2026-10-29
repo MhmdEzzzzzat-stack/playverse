@@ -53,7 +53,13 @@
       "checkers": {title:"Checkers", description:"Classic strategy · Multiplayer", path:"checkers"},
       "popaword": {title:"Pop-a-Word", description:"Word puzzle · Competitive", path:"popaword"},
       "dinomight": {title:"Dino-Might Bomber", description:"Action · Multiplayer", path:"dinomight"},
-      "typeroyale": {title:"TypeRoyale", description:"Typing race · Competitive", path:"typeroyale"}
+      "typeroyale": {title:"TypeRoyale", description:"Typing race · Competitive", path:"typeroyale"},
+      "tic-tac-toe": {title:"Tic Tac Toe", description:"Classic strategy · Online multiplayer", path:"tic-tac-toe"},
+      "breakout": {title:"Breakout", description:"Arcade brick breaker · Multiplayer race", path:"breakout"},
+      "snooker-online": {title:"Snooker", description:"Full-table snooker · Online multiplayer", path:"snooker-online"},
+      "sudoku-online": {title:"Sudoku", description:"Logic puzzle · Solo and multiplayer", path:"sudoku-online"},
+      "jigsaw-puzzle-online": {title:"Jigsaw Puzzle", description:"Relaxing picture puzzle", path:"jigsaw-puzzle-online"},
+      "paintjob": {title:"Draw & Guess", description:"Online drawing and word guessing · Multiplayer", path:"paintjob"}
     };
     const slug = new URLSearchParams(location.search).get("game") || "8-ball-pool-online-billiards";
     const game = games[slug] || games["8-ball-pool-online-billiards"];
