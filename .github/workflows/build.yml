@@ -33,4 +33,4 @@ jobs:
           test -f dist/index.html
           test -f dist/arcade/index.html
           test -f dist/arcade/manifest.webmanifest
-          node -e "const m = require('./dist/arcade/manifest.webmanifest'); if (m.scope !== '/arcade/' || m.start_url !== '/arcade/') process.exit(1)"
+          node -e "const fs = require('node:fs'); const m = JSON.parse(fs.readFileSync('dist/arcade/manifest.webmanifest', 'utf8')); if (m.scope !== '/arcade/' || m.start_url !== '/arcade/') process.exit(1)"
