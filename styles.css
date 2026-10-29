@@ -541,3 +541,27 @@ main { padding-top: 12px; }
 @media (prefers-reduced-motion: reduce) {
   .game-card, .game-cover .cover-art { transition: none; }
 }
+
+
+/* PlayVerse color refresh: deep navy + electric violet + crisp cyan. */
+:root{color-scheme:dark;--bg:#080d18;--panel:#111a2b;--panel2:#172238;--text:#f4f7ff;--muted:#9eacc4;--purple:#8b5cf6;--pink:#ec4899;--cyan:#22d3ee;--line:rgba(148,174,215,.16)}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse at 12% 0%,rgba(34,211,238,.09),transparent 32%),radial-gradient(ellipse at 88% 12%,rgba(139,92,246,.13),transparent 35%)}
+.ambient-one{background:#7c3aed;opacity:.12}.ambient-two{background:#0891b2;opacity:.1}
+.site-header{border-bottom-color:rgba(148,174,215,.15)}
+.brand-light{color:#a5b4fc}.brand-mark{background:linear-gradient(135deg,#22d3ee,#6366f1);box-shadow:0 5px 22px #22d3ee25}
+.header-cta,.primary-button{background:linear-gradient(110deg,#06b6d4,#7c3aed);box-shadow:0 8px 25px #4f46e533}
+.header-cta:hover,.primary-button:hover{filter:brightness(1.12)}
+.eyebrow,.category-tag{color:#a5b4fc}.gradient-text{background-image:linear-gradient(100deg,#22d3ee 0%,#a78bfa 58%,#f472b6 100%)}
+.live-dot,.online-dot{background:#22d3ee;box-shadow:0 0 12px #22d3ee88}
+.icon-button:hover,.icon-button[aria-pressed=true]{border-color:#22d3ee;color:#67e8f9;background:#22d3ee12}
+.games-grid{gap:16px}.game-card{background:linear-gradient(155deg,#142037,#0e1627);border-color:#24334c;box-shadow:0 8px 24px #0003}
+.game-card:hover{border-color:#7c6af2;box-shadow:0 18px 38px #020617aa}
+.search-wrap{background:#0e1728;border-color:#293952}.search-wrap:focus-within{border-color:#22d3ee;box-shadow:0 0 0 3px #22d3ee12}
+.filter-chip{background:#111b2d;border-color:#283750;color:#b8c4d9}.filter-chip:hover,.filter-chip.selected{color:#fff;background:#7c3aed22;border-color:#8b5cf6}
+.play-button{border-color:#22d3ee55;background:#22d3ee10;color:#d8fbff}.play-button:hover{background:#22d3ee20;border-color:#22d3ee}.play-button span{color:#67e8f9}
+.favorite-button:hover,.favorite-button[aria-pressed=true]{color:#f472b6}
+.bottom-banner{border-color:#4754a355;background:radial-gradient(ellipse at 0 0,#22d3ee12,transparent 55%),linear-gradient(110deg,#14213a,#111827)}
+.banner-icon{color:#67e8f9;background:linear-gradient(145deg,#164e63,#312e81)}
+.modal-panel{background:#111a2b;border-color:#2b3a54}.secondary-button:hover{border-color:#22d3ee}
+.ttt-cell{color:#a5b4fc}.ttt-cell:hover:not(:disabled){background:#8b5cf620}.memory-card{border-color:#8b5cf655;background:linear-gradient(145deg,#29385b,#1b2540)}
+@media(max-width:760px){.main-nav{border-top-color:rgba(148,174,215,.16)}}
