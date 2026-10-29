@@ -115,11 +115,22 @@
   }));
   search.addEventListener("input", filterGames);
   favoritesToggle.addEventListener("click", () => { favoritesOnly = !favoritesOnly; syncFavorites(); filterGames(); $("#games").scrollIntoView({behavior:"smooth"}); });
-  $$(".favorite-button").forEach(button => button.addEventListener("click", () => {
-    const id = button.closest(".game-card").dataset.game;
+  // Delegate favorite clicks so dynamically loaded catalog cards work too.
+  grid.addEventListener("click", event => {
+    const button = event.target.closest(".favorite-button");
+    if (!button || !grid.contains(button)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const card = button.closest(".game-card");
+    if (!card) return;
+    const id = card.dataset.game;
     if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
     saveFavorites(); syncFavorites(); filterGames();
-  }));
+  });
+  document.addEventListener("playverse:games-added", () => {
+    syncFavorites();
+    filterGames();
+  });
   $("#resetFilters").addEventListener("click", () => {
     search.value = ""; activeFilter = "All"; favoritesOnly = false;
     $$(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === "All"));
