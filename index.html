@@ -137,7 +137,7 @@
         <article class="trending-card"><a class="trending-cover" href="https://www.crazygames.com/game/pawn-to-don-qbi" data-trending-launch="https://www.crazygames.com/game/pawn-to-don-qbi" data-game-title="Pawn to Don"><img src="https://imgs.crazygames.com/pawn-to-don-qbi_16x9/20260721094741/pawn-to-don-qbi_16x9-cover?metadata=none&quality=85&width=500&fit=crop" alt="Pawn to Don game cover" loading="lazy" decoding="async" ><span class="trending-play">▶ Play</span></a><div class="trending-card-info"><strong>Pawn to Don</strong><small>CrazyGames · Trending</small></div></article>
       </div>
     </section>
-    <dialog class="trending-dialog" id="trendingDialog" aria-label="Play trending game"><div class="trending-dialog-head"><strong id="trendingDialogTitle">Play game</strong><div><a id="trendingExternal" href="#" target="_blank" rel="noopener noreferrer">Open original ↗</a><button type="button" id="closeTrendingDialog" aria-label="Close game">✕</button></div></div><p class="trending-embed-note">If the game does not load here, the original site may block embedding. Use “Open original”.</p><iframe id="trendingFrame" title="Trending game" allow="fullscreen; autoplay; gamepad; clipboard-read; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></dialog>
+    <dialog class="trending-dialog" id="trendingDialog" aria-label="Play trending game"><div class="trending-dialog-head"><strong id="trendingDialogTitle">Play game</strong><button type="button" id="closeTrendingDialog" aria-label="Close game">✕</button></div><p class="trending-embed-note" id="trendingEmbedStatus">Loading game inside PlayVerse…</p><iframe id="trendingFrame" title="Trending game" allow="fullscreen; autoplay; gamepad; clipboard-read; clipboard-write" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></dialog>
     <section class="games-section" id="games">
       <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>One click and you’re in. What are we playing?</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
       <div class="filter-row" role="group" aria-label="Filter games">
@@ -241,5 +241,33 @@
     <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
   </div>
   <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
+
+  <script>
+    (() => {
+      const dialog = document.getElementById("trendingDialog");
+      const frame = document.getElementById("trendingFrame");
+      const title = document.getElementById("trendingDialogTitle");
+      const status = document.getElementById("trendingEmbedStatus");
+      const close = document.getElementById("closeTrendingDialog");
+      if (!dialog || !frame || !close) return;
+      document.querySelectorAll("[data-trending-launch]").forEach(card => {
+        card.addEventListener("click", event => {
+          event.preventDefault();
+          const url = card.dataset.trendingLaunch;
+          title.textContent = card.dataset.gameTitle || "Play game";
+          status.textContent = "Loading this game inside PlayVerse…";
+          frame.src = url;
+          if (typeof dialog.showModal === "function") dialog.showModal();
+          else dialog.setAttribute("open", "");
+        });
+      });
+      close.addEventListener("click", () => {
+        dialog.close();
+        frame.src = "about:blank";
+      });
+      dialog.addEventListener("close", () => { frame.src = "about:blank"; });
+    })();
+  </script>
+
 </body>
 </html>
