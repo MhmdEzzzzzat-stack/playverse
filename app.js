@@ -115,11 +115,28 @@
   }));
   search.addEventListener("input", filterGames);
   favoritesToggle.addEventListener("click", () => { favoritesOnly = !favoritesOnly; syncFavorites(); filterGames(); $("#games").scrollIntoView({behavior:"smooth"}); });
-  $$(".favorite-button").forEach(button => button.addEventListener("click", () => {
-    const id = button.closest(".game-card").dataset.game;
+  // Delegate card actions so dynamically loaded catalog games work too.
+  grid.addEventListener("click", event => {
+    const playLink = event.target.closest("a.play-button, a.game-cover");
+    if (playLink && grid.contains(playLink)) {
+      const card = playLink.closest(".game-card");
+      if (card?.dataset.game) saveRecentlyPlayed(card.dataset.game);
+      return;
+    }
+    const button = event.target.closest(".favorite-button");
+    if (!button || !grid.contains(button)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const card = button.closest(".game-card");
+    if (!card) return;
+    const id = card.dataset.game;
     if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
     saveFavorites(); syncFavorites(); filterGames();
-  }));
+  });
+  document.addEventListener("playverse:games-added", () => {
+    syncFavorites();
+    filterGames();
+  });
   $("#resetFilters").addEventListener("click", () => {
     search.value = ""; activeFilter = "All"; favoritesOnly = false;
     $$(".filter-chip").forEach(item => item.classList.toggle("selected", item.dataset.filter === "All"));
@@ -159,10 +176,6 @@
     document.body.classList.remove("modal-open"); currentGame = null; snakeState = null;
   }
   function restartGame() { if (currentGame) launchGame(currentGame); }
-  $$(".game-card a.play-button").forEach(link => link.addEventListener("click", () => {
-    const id = link.closest(".game-card").dataset.game;
-    saveRecentlyPlayed(id);
-  }));
   $("[data-launch]").forEach(button => button.addEventListener("click", () => { window.location.href = "play.html?source=native&game=" + encodeURIComponent(button.dataset.launch); }));
   $("#closeModal").addEventListener("click", closeGame);
   $("#restartGame").addEventListener("click", restartGame);

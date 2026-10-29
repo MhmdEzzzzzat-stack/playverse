@@ -637,3 +637,9 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
 .snake-canvas{background:#eef5e9;border-color:#dce6d8}
 .board-2048{background:#e4e8dd}.tile-2048{background:#a9b7a0;color:#17231b}
 @media(max-width:760px){.main-nav{border-top-color:#dfe8db}}
+
+/* Unified partner-game library controls */
+.library-status{margin:10px 0 14px;color:var(--muted,#647267);font-size:12px;letter-spacing:.02em}
+.library-load-wrap{display:flex;justify-content:center;padding:26px 0 8px}
+.madkid-card[hidden]{display:none!important}
+.madkid-card .cover-badge{z-index:1}
