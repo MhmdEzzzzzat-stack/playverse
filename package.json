@@ -1,0 +1,12 @@
+{
+  "name": "playverse",
+  "private": true,
+  "version": "1.0.0",
+  "description": "PlayVerse static browser-game portal with a separately built arcade collection.",
+  "scripts": {
+    "build": "node scripts/build-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
