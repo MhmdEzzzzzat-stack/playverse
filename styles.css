@@ -176,3 +176,112 @@
 #more-foony-games .pick-art:before,#more-foony-games .pick-art:after{pointer-events:none;}
 #more-foony-games .pick-art-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 #more-foony-games .pick-art:has(.pick-art-image):before,#more-foony-games .pick-art:has(.pick-art-image):after{display:none;}
+
+
+/* Premium PlayVerse homepage — phase 1 */
+:root{--bg:#050d20;--panel:#091832;--panel2:#0c2040;--text:#f4f7ff;--muted:#a8bddb;--purple:#695cff;--cyan:#35d5ff;--line:rgba(115,165,255,.24);--radius:18px}
+body{background:radial-gradient(ellipse at 78% 4%,rgba(0,133,255,.13),transparent 36%),radial-gradient(ellipse at 12% 26%,rgba(89,72,255,.10),transparent 32%),#050d20;color:var(--text)}
+.ambient{opacity:.25;filter:blur(90px)}
+.site-header{position:sticky;top:0;z-index:30;min-height:76px;padding:12px clamp(18px,4vw,58px);background:rgba(4,12,29,.88);border-bottom:1px solid rgba(93,150,255,.22);backdrop-filter:blur(18px)}
+.brand{gap:11px;font-size:25px;letter-spacing:-.06em}
+.brand img{box-shadow:0 0 26px rgba(102,86,255,.35)}
+.main-nav{gap:8px}
+.nav-link{padding:11px 15px;border-radius:12px;color:#a9c4eb;transition:background .2s ease,color .2s ease}
+.nav-link:hover,.nav-link.active{background:rgba(104,92,255,.15);color:#fff}
+.header-cta,.primary-button{border:1px solid rgba(151,140,255,.5);background:linear-gradient(120deg,#6257ff,#8a50f5);box-shadow:0 8px 26px rgba(83,73,255,.22);border-radius:14px}
+.category-bar{position:relative;top:auto;z-index:5;max-width:1500px;margin:14px auto 0;padding:9px clamp(16px,3vw,42px);border:1px solid rgba(93,150,255,.15);border-radius:16px;background:rgba(7,21,46,.78);gap:10px}
+.category-bar a{padding:9px 13px;border-radius:11px;color:#b4c9e9;transition:background .2s ease,color .2s ease}
+.category-bar a:hover{background:#132b52;color:#fff}
+.category-bar-note{margin-left:auto;color:#6fa8e8;font-size:10px;letter-spacing:.13em}
+.hero.hero-featured{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(310px,.82fr) minmax(0,1.35fr);align-items:stretch;gap:0;max-width:1500px;min-height:330px;margin:24px auto 30px;padding:0;overflow:hidden;border:1px solid rgba(96,158,255,.34);border-radius:22px;background:linear-gradient(100deg,#07152e 0%,#081b39 42%,#073c66 100%);box-shadow:0 22px 70px rgba(0,0,0,.26),inset 0 1px rgba(255,255,255,.06)}
+.hero-featured:before{position:absolute;inset:0;z-index:-1;content:"";background:radial-gradient(ellipse at 72% 45%,rgba(0,183,255,.23),transparent 48%),linear-gradient(90deg,#07152e 0%,rgba(7,21,46,.96) 28%,rgba(7,21,46,.42) 53%,transparent 80%)}
+.hero-featured .hero-copy{position:relative;z-index:3;align-self:center;padding:clamp(25px,4vw,54px) 0 clamp(25px,4vw,54px) clamp(22px,3vw,44px);max-width:570px}
+.hero-featured .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#c3c1ff;font-size:11px;font-weight:800;letter-spacing:.12em}
+.hero-featured h1{margin:16px 0 13px;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.045em}
+.hero-featured .hero-copy>p{max-width:440px;color:#c0d0e9;font-size:14px;line-height:1.8}
+.hero-featured .hero-actions{align-items:center;gap:16px;margin-top:23px}
+.hero-featured .primary-button{min-height:46px;padding:0 23px}
+.hero-featured .social-proof{color:#eaf1ff}
+.hero-featured .social-proof small{color:#91a8cb}
+.hero-featured .avatar-stack i{border:2px solid #0b1d3b;background:#132c54}
+.featured-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:21px}
+.featured-tags span{padding:6px 12px;border:1px solid rgba(143,185,255,.2);border-radius:999px;background:rgba(15,42,80,.72);color:#b9d5fa;font-size:10px;font-weight:700;letter-spacing:.05em}
+.hero-featured .hero-art.hero-art-image{position:relative;min-height:330px;height:100%;overflow:hidden;isolation:isolate}
+.hero-art-image>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;filter:saturate(1.08);z-index:-2}
+.hero-image-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,21,46,.55),transparent 38%),linear-gradient(0deg,rgba(4,13,30,.18),transparent 42%)}
+.hero-featured .float-card-two{right:22px;bottom:20px;top:auto;z-index:2;padding:10px 14px;border:1px solid rgba(148,190,255,.28);border-radius:13px;background:rgba(5,17,39,.78);box-shadow:0 12px 35px #0004;backdrop-filter:blur(12px)}
+.stats-strip{max-width:1400px;margin:0 auto 42px;padding:18px 24px;border:1px solid rgba(100,156,255,.17);border-radius:17px;background:linear-gradient(100deg,rgba(10,28,58,.9),rgba(8,20,43,.8));box-shadow:0 14px 42px #0002}
+.stats-strip strong{color:#f6f8ff}
+.stats-strip span{color:#a6bddf}
+.browse-categories,.popular-picks-section,.games-section,.bottom-banner,.coming-soon-section{max-width:1400px}
+.mini-section-heading h2,.section-heading h2{letter-spacing:-.035em}
+.mini-section-heading h2{font-size:clamp(22px,2.4vw,30px)}
+.popular-picks-section{padding:24px;border:1px solid rgba(93,150,255,.17);border-radius:22px;background:linear-gradient(150deg,rgba(9,26,54,.85),rgba(6,17,37,.78));box-shadow:0 20px 55px rgba(0,0,0,.12)}
+.popular-pick{border:1px solid rgba(103,157,255,.25);border-radius:16px;background:linear-gradient(145deg,#0d2143,#07152d);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.popular-pick:hover{transform:translateY(-4px);border-color:rgba(115,145,255,.7);box-shadow:0 16px 34px rgba(0,0,0,.24)}
+.pick-art{border-radius:12px;background:#10274c}
+.pick-copy>small{color:#a7b8ff}
+.pick-copy>span,.pick-copy .pick-description{color:#adc1e0}
+.pick-tags{color:#a9c9ff}
+.pick-open{color:#bdb5ff}
+.games-section{padding:26px;border:1px solid rgba(93,150,255,.17);border-radius:22px;background:linear-gradient(150deg,rgba(9,26,54,.85),rgba(6,17,37,.78))}
+.search-wrap{border:1px solid rgba(115,165,255,.25);background:#071630;border-radius:14px}
+.search-wrap:focus-within{border-color:#8274ff;box-shadow:0 0 0 3px rgba(111,94,255,.13)}
+.filter-chip{border:1px solid rgba(110,157,238,.2);background:#0a1a35;color:#adc3e4;border-radius:999px}
+.filter-chip.selected,.filter-chip:hover{border-color:#8174ff;background:linear-gradient(120deg,#5147d8,#4339a4);color:#fff}
+.games-grid{gap:18px}
+.game-card{overflow:hidden;border:1px solid rgba(99,154,255,.24);border-radius:17px;background:linear-gradient(160deg,#0d2143,#07152c);box-shadow:0 10px 26px rgba(0,0,0,.13);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.game-card:hover{transform:translateY(-5px);border-color:rgba(122,143,255,.7);box-shadow:0 18px 35px rgba(0,0,0,.28)}
+.game-cover{border-radius:13px 13px 0 0;overflow:hidden}
+.game-cover .cover-art{transition:transform .35s ease,filter .35s ease}
+.game-card:hover .game-cover .cover-art{transform:scale(1.045);filter:saturate(1.1)}
+.game-info{padding:13px 13px 8px}
+.game-info h3{color:#f2f6ff;font-size:15px}
+.game-info p{color:#91abd0}
+.favorite-button{border:1px solid rgba(115,165,255,.2);border-radius:10px;background:#0b1e3d;color:#d5ddff}
+.category-tag{color:#92b7e8;font-size:9px;letter-spacing:.07em}
+.play-button{border:1px solid rgba(133,117,255,.42);border-radius:10px;background:rgba(98,83,255,.17);color:#d5d0ff;padding:8px 12px}
+.play-button:hover{background:#6558ed;color:#fff}
+.coming-soon-panel{border:1px solid rgba(133,117,255,.3);background:radial-gradient(ellipse at 85% 40%,rgba(100,83,255,.13),transparent 44%),linear-gradient(120deg,#0c1d3a,#08142b);box-shadow:0 18px 48px #0002}
+.coming-soon-panel h2{letter-spacing:-.03em}
+.site-footer{border-top:1px solid rgba(93,150,255,.17);background:rgba(4,12,29,.6)}
+@media(max-width:1050px){
+ .hero.hero-featured{grid-template-columns:minmax(280px,.9fr) minmax(0,1fr);margin-left:18px;margin-right:18px}
+ .hero-featured .hero-copy{padding-left:25px}
+ .hero-featured h1{font-size:clamp(30px,4.2vw,43px)}
+ .stats-strip,.games-section,.bottom-banner,.popular-picks-section{margin-left:18px;margin-right:18px}
+}
+@media(max-width:760px){
+ .site-header{padding:10px 15px;min-height:66px}
+ .brand{font-size:22px}
+ .main-nav{gap:3px}
+ .nav-link{padding:9px 8px;font-size:12px}
+ .header-cta{display:none}
+ .category-bar{margin:10px 12px 0;border-radius:13px}
+ .category-bar-note{display:none}
+ .hero.hero-featured{grid-template-columns:1fr;margin:16px 12px 23px;min-height:0}
+ .hero-featured .hero-copy{grid-row:2;padding:23px 22px 24px}
+ .hero-featured .hero-art.hero-art-image{grid-row:1;min-height:230px;height:clamp(230px,52vw,340px)}
+ .hero-featured:before{background:linear-gradient(0deg,#07152e 0%,rgba(7,21,46,.65) 30%,transparent 70%)}
+ .hero-image-shade{background:linear-gradient(0deg,rgba(7,21,46,.28),transparent 48%)}
+ .hero-featured h1{font-size:clamp(30px,8vw,42px)}
+ .hero-featured .hero-copy>p{font-size:13px}
+ .hero-featured .float-card-two{right:12px;bottom:12px}
+ .stats-strip,.games-section,.bottom-banner,.popular-picks-section{margin-left:12px;margin-right:12px}
+ .stats-strip{padding:15px}
+ .popular-picks-section,.games-section{padding:17px}
+ .games-grid{gap:12px}
+}
+@media(max-width:480px){
+ .main-nav .nav-link:nth-child(2){display:none}
+ .hero-featured .hero-actions{align-items:flex-start;flex-direction:column}
+ .hero-featured .social-proof{margin-top:2px}
+ .featured-tags{margin-top:16px}
+ .games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .game-info{padding:10px 9px 7px}
+ .game-info h3{font-size:13px}
+ .game-info p{font-size:10px}
+ .card-bottom{padding:0 9px 10px}
+ .play-button{padding:7px 9px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.game-card,.popular-pick,.game-cover .cover-art,.nav-link{transition:none!important}}
