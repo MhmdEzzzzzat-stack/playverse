@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111b">
+  <meta name="description" content="Play 8 Ball Pool Billiards Multiplayer on PlayVerse, powered by Foony.">
+  <link rel="canonical" href="https://playverse-6a7.pages.dev/foony-8-ball-pool.html">
+  <title>8 Ball Pool — PlayVerse</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pool-page{max-width:1200px;margin:0 auto;padding:28px 22px 54px}
+    .pool-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .pool-heading h1{font:700 clamp(25px,4vw,38px)/1.15 "Space Grotesk",sans-serif;margin:7px 0}
+    .pool-heading p{color:var(--muted);font-size:13px;margin:0}
+    .pool-frame-shell{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#0c0d13;box-shadow:0 22px 70px #0004}
+    .pool-frame{display:block;width:100%;height:min(78vh,900px);min-height:620px;border:0;background:#0c0d13}
+    .pool-note{font-size:12px;color:var(--muted);line-height:1.7;margin:14px 2px}
+    .pool-note a{color:#c5b5ff;text-decoration:underline}
+    @media(max-width:650px){.pool-page{padding:18px 12px 34px}.pool-heading{align-items:flex-start;flex-direction:column}.pool-frame{height:78vh;min-height:520px}.pool-frame-shell{border-radius:12px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PlayVerse home"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a>
+    <div class="header-actions"><a class="header-cta" href="index.html#games">All games <span>↗</span></a></div>
+  </header>
+  <main class="pool-page">
+    <div class="pool-heading">
+      <div><span class="eyebrow">SPORTS · MULTIPLAYER</span><h1>8 Ball Pool</h1><p>Hosted by Foony · Multiplayer browser game</p></div>
+      <a class="play-button" href="https://foony.com/games/8-ball-pool-online-billiards?description=true" target="_blank" rel="noopener noreferrer">Open on Foony ↗</a>
+    </div>
+    <div class="pool-frame-shell">
+      <iframe class="pool-frame" src="https://foony.com/games/8-ball-pool-online-billiards?description=true" title="8 Ball Pool Billiards Multiplayer — Foony" allow="fullscreen; autoplay; clipboard-write; gamepad" allowfullscreen loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <p class="pool-note">This is Foony’s externally hosted game experience. Chat, account/profile, XP, achievements, items, and social features remain controlled by Foony and will appear here only to the extent the provider permits in an embedded frame. If the frame is blocked or sign-in features do not work in your browser, use <a href="https://foony.com/games/8-ball-pool-online-billiards?description=true" target="_blank" rel="noopener noreferrer">Open on Foony</a>.</p>
+  </main>
+</body>
+</html>
