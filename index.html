@@ -116,6 +116,45 @@
     .game-load-panel .primary-button{border:0;cursor:pointer}
     .requested-player iframe[hidden]{display:none}
 
+
+    /* PlayVerse cleanup: one navigation, one primary library, fewer competing sections. */
+    .category-bar{display:none!important}
+    main{display:flex;flex-direction:column;gap:0}
+    main>.hero-featured{display:none!important}
+    main>#games{order:1;margin-top:28px;padding-bottom:52px}
+    main>.stats-strip{display:none!important}
+    main>#recentlyPlayedSection{order:2;margin-top:18px;margin-bottom:20px}
+    main>#games{order:1;margin-top:28px;padding-bottom:52px}
+    main>#madkid-games{order:4;margin-top:0;padding-top:12px}
+    main>#coming-soon{order:5}
+    main>#more-foony-games,main>#requested-games,main>#open-source-arcade,main>.spotlight-section,main>.bottom-banner,main>.browse-categories{display:none!important}
+    .site-header{height:72px;max-width:1240px;padding:0 22px}
+    .main-nav{gap:24px}
+    .header-actions{gap:9px}
+    .header-cta{padding:10px 14px}
+    .games-section{max-width:1240px;padding-left:22px;padding-right:22px}
+    .games-section .section-heading{margin-bottom:18px}
+    .games-grid{gap:14px}
+    .game-cover{height:auto;aspect-ratio:16/10}
+    .coming-soon-section{margin-top:12px;margin-bottom:40px}
+    .coming-soon-panel{padding:18px 22px}
+    @media(max-width:760px){
+      .site-header{height:auto;min-height:68px;padding:12px 15px;gap:10px;flex-wrap:wrap}
+      .main-nav{order:3;width:100%;justify-content:space-between;gap:12px;padding-top:9px;border-top:1px solid var(--line)}
+      .nav-link{font-size:12px}
+      .header-actions{margin-left:auto}
+      .header-cta{font-size:12px;padding:9px 11px}
+      .games-section{padding-left:15px;padding-right:15px}
+      .games-section .section-heading{align-items:stretch;flex-direction:column;gap:14px}
+      .search-wrap{width:100%}
+      .games-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      .game-info{padding:10px 9px 7px}
+      .game-info h3{font-size:13px}
+      .card-bottom{padding:8px 9px 10px}
+      .madkid-library{margin-top:18px}
+    }
+    @media(min-width:761px) and (max-width:1050px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
   </style>
   <script src="app.js" defer></script>
 </head>
@@ -124,7 +163,7 @@
   <header class="site-header">
     <a class="brand" href="#" aria-label="PlayVerse home"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class="nav-link active" href="#games">All Games</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#more-foony-games">Trending</a><a class="nav-link" href="#coming-soon">Coming Soon</a>
+      <a class="nav-link active" href="#games">Games</a><a class="nav-link" href="#madkid-games">Explore</a><a class="nav-link" href="#recentlyPlayedSection">Recently Played</a><a class="nav-link" href="#coming-soon">Coming Soon</a>
     </nav>
     <div class="header-actions"><button class="icon-button" id="favoritesToggle" aria-pressed="false" aria-label="Show favorites" title="Favorites">♡</button><a class="header-cta" href="#games">Play now <span>↗</span></a></div>
   </header>
