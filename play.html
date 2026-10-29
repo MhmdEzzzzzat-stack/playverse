@@ -78,6 +78,9 @@ body{background:#10111b;color:var(--pv-ink)}
 .player-icon{display:inline-grid;place-items:center;line-height:1}
 @media(max-width:1000px){.player-layout{grid-template-columns:minmax(0,1fr)}.player-stage{height:clamp(380px,68vw,680px);min-height:380px}}
 @media(max-width:650px){.player-stage{height:68svh;height:68vh;min-height:320px;max-height:620px}.player-shell{border-radius:12px}.player-toolbar{padding:0 10px}.player-stage:fullscreen{height:100dvh;height:100vh}}
+
+/* Related-game artwork stays full-width on phones instead of shrinking to a tiny icon. */
+@media(max-width:650px){.related-game{padding:0;gap:0}.related-art{width:100%;height:auto;min-height:0;aspect-ratio:16/9;flex:0 0 auto;border-radius:0;}.related-art img{width:100%;height:100%;object-fit:cover}.related-glyph{font-size:48px}.related-copy{padding:10px 11px 12px}.related-copy strong{white-space:normal;min-height:2.6em}.related-copy small{margin-top:6px}}
 </style></head>
 <body>
 <header class="play-header"><a class="play-brand" href="index.html"><img src="logo.svg" alt=""><span>play<em>verse</em></span></a><div class="play-header-actions"><a class="pv-button primary" href="index.html#games">← All games</a></div></header>
