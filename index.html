@@ -232,6 +232,7 @@
     <section class="requested-games" id="requested-games" aria-label="Requested game collection">
       <div class="requested-head"><div><span class="eyebrow">YOUR GAME LIST</span><h2>Requested <span class="gradient-text">24 Games</span></h2><p>Games are listed by their requested names. Only games with a verified playable embed are enabled; the rest stay marked until a working authorized source is confirmed.</p></div><span class="trending-count">24 TITLES</span></div>
       <div class="requested-grid">
+        <article class="requested-card available"><strong>Offroad Outlaws</strong><span>MadKidGames embed supplied</span><button type="button" class="requested-play-button" id="openOffroadGame">▶ Play here</button></article>
         <article class="requested-card available"><strong>Subway Surfers</strong><span>Playable embed available</span><button type="button" class="requested-play-button" id="openSubwayGame">▶ Play here</button></article>
         <article class="requested-card"><strong>Level Devil</strong><span>Source/embedding not verified yet</span></article>
         <article class="requested-card"><strong>Smash Karts</strong><span>Source/embedding not verified yet</span></article>
@@ -275,9 +276,9 @@
   </div>
   <div class="external-game-overlay" id="externalGameOverlay" role="dialog" aria-modal="true" aria-label="Subway Surfers" aria-hidden="true">
     <section class="external-game-window">
-      <header class="external-game-head"><strong>Subway Surfers</strong><button type="button" id="closeExternalGame" aria-label="Close game">✕ Close</button></header>
+      <header class="external-game-head"><strong id="externalGameTitle">Game</strong><button type="button" id="closeExternalGame" aria-label="Close game">✕ Close</button></header>
       <div class="external-game-stage" id="externalGameStage"></div>
-      <footer class="external-game-foot">Game hosted by MadKidGames · If it does not load, <a href="https://www.madkidgames.com/game/subway-surfers" target="_blank" rel="noopener noreferrer">open the game source</a>.</footer>
+      <footer class="external-game-foot">Game hosted by MadKidGames · If it does not load, <a id="externalGameSource" href="https://www.madkidgames.com/game/subway-surfers" target="_blank" rel="noopener noreferrer">open the game source</a>.</footer>
     </section>
   </div>
   <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
@@ -286,12 +287,17 @@
 
 <script>
 (() => {
- const trigger=document.getElementById('openSubwayGame'), overlay=document.getElementById('externalGameOverlay'), stage=document.getElementById('externalGameStage'), close=document.getElementById('closeExternalGame');
- if(!trigger||!overlay||!stage||!close)return;
- let frame=null;
- function open(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(!frame){frame=document.createElement('iframe');frame.title='Subway Surfers';frame.src='https://www.madkidgames.com/full/subway-surfers';frame.allow='fullscreen; autoplay; gamepad';frame.allowFullscreen=true;frame.loading='eager';frame.referrerPolicy='strict-origin-when-cross-origin';stage.appendChild(frame)}close.focus()}
+ const overlay=document.getElementById('externalGameOverlay'), stage=document.getElementById('externalGameStage'), close=document.getElementById('closeExternalGame'), title=document.getElementById('externalGameTitle'), source=document.getElementById('externalGameSource');
+ if(!overlay||!stage||!close||!title||!source)return;
+ let frame=null, current='';
+ const games={
+  openSubwayGame:{title:'Subway Surfers',embed:'https://www.madkidgames.com/full/subway-surfers',page:'https://www.madkidgames.com/game/subway-surfers'},
+  openOffroadGame:{title:'Offroad Outlaws',embed:'https://www.madkidgames.com/full/offroad-outlaws',page:'https://www.madkidgames.com/game/offroad-outlaws'}
+ };
+ function open(id){const game=games[id];if(!game)return;title.textContent=game.title;source.href=game.page;overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(current!==game.embed){stage.replaceChildren();frame=document.createElement('iframe');frame.title=game.title;frame.src=game.embed;frame.width='100%';frame.height='100%';frame.allow='fullscreen; autoplay; gamepad';frame.allowFullscreen=true;frame.loading='eager';frame.scrolling='no';frame.referrerPolicy='no-referrer-when-downgrade';frame.style.cssText='width:100%;height:100%;display:block;border:0;background:#080910';stage.appendChild(frame);current=game.embed;}close.focus()}
  function shut(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
- trigger.addEventListener('click',open);close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))shut()});
+ Object.keys(games).forEach(id=>{const button=document.getElementById(id);if(button)button.addEventListener('click',()=>open(id));});
+ close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))shut()});
 })();
 </script>
 
