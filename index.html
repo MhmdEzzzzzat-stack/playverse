@@ -83,7 +83,7 @@
     .madkid-play{border:0;border-radius:8px;padding:8px 10px;background:#9277ff;color:#fff;font-weight:800;font-size:12px;cursor:pointer}
     @media(hover:none){.madkid-preview{opacity:1;transform:none}.madkid-preview i{width:34px;height:34px}}
     @media(max-width:600px){.madkid-library{padding:0 15px}.madkid-library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.madkid-card-info{padding:10px}.madkid-library-head{align-items:start;flex-direction:column}}
-    .requested-games{max-width:1240px;margin:42px auto;padding:0 22px;color:#f7f7fb}
+\n    .library-status{margin:10px 0 14px;color:var(--muted);font-size:12px;letter-spacing:.02em}\n    .library-load-wrap{display:flex;justify-content:center;padding:26px 0 8px}\n    .madkid-card .cover-badge{z-index:1}\n    .madkid-card[hidden]{display:none!important}\n    .requested-games{max-width:1240px;margin:42px auto;padding:0 22px;color:#f7f7fb}
     .requested-games .requested-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px}
     .requested-games h2{margin:6px 0;font-size:clamp(1.6rem,3vw,2.3rem)}
     .requested-games p{color:#a9adbf;line-height:1.6}
@@ -357,17 +357,17 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
       </div>
     </section>
     <section class="games-section" id="games">
-      <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>38 games in one place. Search, filter, and play.</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
+      <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>Hundreds of games, one place. Search, filter, and play.</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
       <div class="filter-row" role="group" aria-label="Filter games">
-        <button class="filter-chip selected" data-filter="All">✦ All games <span>38</span></button><button class="filter-chip" data-filter="Arcade">🕹 Arcade</button><button class="filter-chip" data-filter="Puzzle">🧩 Puzzle</button><button class="filter-chip" data-filter="Classic">⭐ Classics</button>
+        <button class="filter-chip selected" data-filter="All">✦ All games</button><button class="filter-chip" data-filter="Arcade">🕹 Arcade</button><button class="filter-chip" data-filter="Action">⚔ Action</button><button class="filter-chip" data-filter="Racing">🏎 Racing</button><button class="filter-chip" data-filter="Puzzle">🧩 Puzzle</button><button class="filter-chip" data-filter="Sports">⚽ Sports</button><button class="filter-chip" data-filter="Kids">🎨 Kids</button><button class="filter-chip" data-filter="Classic">⭐ Classics</button>
       </div>
-      <div class="games-grid" id="gamesGrid">
+      <p id="madkidStatus" class="library-status" aria-live="polite">Loading the extended game library…</p>\n      <div class="games-grid" id="gamesGrid">
         <article class="game-card" data-name="8 ball pool foony online multiplayer sports · multiplayer" data-category="Arcade" data-game="foony-pool">
           <a class="game-cover" href="play.html?source=foony&game=8-ball-pool-online-billiards" aria-label="Play 8 Ball Pool">
             <span class="cover-badge">MOST PLAYED</span>
             <img class="cover-art" src="https://foony.com/img/games/8-ball-pool-online-billiards/og_image.webp" alt="8 Ball Pool official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/8-ball-pool-online-billiards/og_image.png'">
           </a>
-          <div class="game-info"><div><h3>8 Ball Pool</h3><p>2.5M games / month</p></div><button class="favorite-button" aria-label="Add 8 Ball Pool to favorites" aria-pressed="false">♡</button></div>
+          <div class="game-info"><div><h3>8 Ball Pool</h3><p>2.5M games / month</p></div>\n      <div class="library-load-wrap"><button class="filter-chip" id="madkidLoadMore" type="button">Load more games</button></div><button class="favorite-button" aria-label="Add 8 Ball Pool to favorites" aria-pressed="false">♡</button></div>
           <div class="card-bottom"><span class="category-tag">SPORTS · MULTIPLAYER</span><a class="play-button" href="play.html?source=foony&game=8-ball-pool-online-billiards" data-track-game="foony-pool">Play <span>↗</span></a></div>
         </article>
         <article class="game-card" data-name="chess foony online multiplayer board · strategy" data-category="Classic" data-game="foony-chess">
@@ -516,22 +516,7 @@ body{background-image:radial-gradient(ellipse at 10% 0%,rgba(39,125,60,.08),tran
         <div class="coming-soon-mark" aria-hidden="true">✦</div>
       </div>
     </section>
-  
-<section class="games-section" id="partner-library" aria-labelledby="partner-library-title">
-  <div class="section-heading"><div><div class="eyebrow">PARTNER GAME LIBRARY</div><h2 id="partner-library-title">Discover <span class="gradient-text">509 more games.</span></h2><p id="madkidStatus">Loading games from the MadKidGames catalog…</p></div><div class="search-wrap"><span>⌕</span><input id="madkidSearch" type="search" placeholder="Search 509 games..." aria-label="Search MadKidGames games"></div></div>
-  <div class="filter-row" id="madkidFilters" role="group" aria-label="Filter partner games">
-    <button class="filter-chip selected" type="button" data-madkid-filter="All">✦ All games</button>
-    <button class="filter-chip" type="button" data-madkid-filter="Action">⚔ Action</button>
-    <button class="filter-chip" type="button" data-madkid-filter="Racing">🏎 Racing</button>
-    <button class="filter-chip" type="button" data-madkid-filter="Puzzle">🧩 Puzzle</button>
-    <button class="filter-chip" type="button" data-madkid-filter="Sports">⚽ Sports</button>
-    <button class="filter-chip" type="button" data-madkid-filter="Kids">🎨 Kids</button>
-  </div>
-  <div class="games-grid" id="madkidGrid" aria-live="polite"></div>
-  <div id="madkidLoadMoreWrap" style="display:flex;justify-content:center;padding:26px 0 8px"><button class="filter-chip" id="madkidLoadMore" type="button">Load more games</button></div>
-  <p id="madkidError" hidden style="padding:16px;border-radius:12px;background:rgba(255,255,255,.06)">Couldn’t load the catalog right now. <a href="https://www.madkidgames.com/html5-games" target="_blank" rel="noopener noreferrer">Open MadKidGames</a>.</p>
-</section>
-<footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
+  <footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
   <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
   </div>
