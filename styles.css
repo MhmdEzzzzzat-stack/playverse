@@ -285,3 +285,27 @@ body{background:radial-gradient(ellipse at 78% 4%,rgba(0,133,255,.13),transparen
  .play-button{padding:7px 9px;font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){.game-card,.popular-pick,.game-cover .cover-art,.nav-link{transition:none!important}}
+
+
+/* Final polish: keep the hero artwork above the hero background so it cannot disappear behind the stacking context. */
+.hero-featured .hero-art.hero-art-image{position:relative;z-index:1;min-width:0;background:#071a38;isolation:isolate}
+.hero-featured .hero-art-image>img{z-index:0;object-fit:cover;object-position:center 42%;opacity:1}
+.hero-featured .hero-art-image .hero-image-shade{z-index:1;pointer-events:none}
+.hero-featured .hero-art-image .float-card-two{z-index:2}
+.hero-featured .hero-copy{z-index:3}
+.hero-featured{isolation:isolate;overflow:hidden}
+.hero-featured:before{z-index:0}
+.hero-featured .hero-art.hero-art-image:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,15,34,.25),transparent 35%)}
+.hero-featured .hero-art-image>img{display:block!important;visibility:visible!important}
+.browse-categories{display:none!important}
+.category-bar{max-width:1400px;margin:12px auto 0;padding:9px 16px;display:flex;align-items:center;gap:9px;overflow-x:auto;scrollbar-width:none;border:1px solid rgba(93,150,255,.2);border-radius:14px;background:rgba(7,20,43,.88)}
+.category-bar::-webkit-scrollbar{display:none}
+.category-bar>a{white-space:nowrap;flex:0 0 auto;padding:8px 13px;border-radius:999px;background:#0b2145;border:1px solid rgba(100,156,255,.15);font-size:12px;color:#d3e3ff}
+.category-bar>a:hover,.category-bar>a:focus-visible{background:linear-gradient(120deg,#5147d8,#4339a4);color:#fff}
+.category-bar-note{margin-left:auto;white-space:nowrap;font-size:10px;letter-spacing:.12em;color:#8da9d1}
+.stats-strip{margin-bottom:26px}
+.recommendations-section{margin-top:28px}
+.popular-picks-section,.games-section{margin-top:28px}
+.coming-soon-section{scroll-margin-top:90px}
+@media(max-width:1450px){.category-bar{margin-left:22px;margin-right:22px}}
+@media(max-width:760px){.category-bar{margin:10px 12px 0;padding:8px;gap:6px}.category-bar>a{padding:7px 10px;font-size:11px}.category-bar-note{display:none}.stats-strip{margin-bottom:20px}}
