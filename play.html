@@ -168,10 +168,23 @@ function loadHosted(){
   retryBadge.addEventListener("click",restart);
   timer=setTimeout(()=>{
     if(iframeLoaded)return;
-    title.textContent="The game is taking longer than expected";
-    message.textContent="The provider may be slow or may not allow this game to be embedded. You can retry here.";
+    title.textContent="The game did not start";
+    message.textContent="The game provider has not responded inside PlayVerse. Retry once, or open the provider’s game page directly.";
     panel.querySelector(".spinner")?.remove();
-  },10000);
+    // Always provide a visible recovery path instead of leaving users on an endless loading screen.
+    let directLink=panel.querySelector("#openProviderGame");
+    if(!directLink){
+      directLink=document.createElement("a");
+      directLink.id="openProviderGame";
+      directLink.className="pv-button";
+      directLink.target="_blank";
+      directLink.rel="noopener noreferrer";
+      directLink.textContent="Open game provider";
+      panel.appendChild(directLink);
+    }
+    directLink.href=official || url;
+    retry.textContent="Try loading again";
+  },8000);
   frame.addEventListener("load",()=>{
     iframeLoaded=true;
     clearTimeout(timer);
