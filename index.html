@@ -24,6 +24,18 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* CrazyGames-inspired homepage flow: featured, trending, main library, then extra collections. */
+    main{display:flex;flex-direction:column}
+    main>.hero-featured{order:1}
+    main>.stats-strip{order:2}
+    main>#recentlyPlayedSection{order:3}
+    main>#more-foony-games{order:4}
+    main>#games{order:5}
+    main>#madkid-games{order:6}
+    main>#requested-games{order:7}
+    main>.bottom-banner{order:8}
+    main>#coming-soon{order:9}
+    main>.browse-categories{display:none!important}
     /* Hide retired prototype recommendations while the real-game library is being rolled out. */
     #open-source-arcade, .spotlight-section { display: none !important; }
     .coming-soon-section{max-width:1180px;margin:20px auto 72px;padding:0 24px}
