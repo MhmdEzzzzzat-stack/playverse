@@ -169,3 +169,12 @@
 @media(max-width:1050px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.popular-picks-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:350px}}
 @media(max-width:700px){.site-header{height:68px}.main-nav{gap:13px}.nav-link{font-size:11px}.hero{padding-top:32px;padding-bottom:26px;min-height:auto}.hero-art{min-height:220px}.stats-strip{margin-bottom:32px}.category-tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category-tile{min-height:82px;padding:12px}.games-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.game-info{padding:11px 10px 6px;min-height:76px}.game-info h3{font-size:13px}.game-info p{font-size:10px}.favorite-button{flex-basis:30px;width:30px;height:30px}.card-bottom{padding:7px 10px 11px;gap:5px}.category-tag{font-size:8px}.play-button{min-height:32px;padding:0 9px;font-size:10px}.popular-picks-grid{grid-template-columns:1fr;gap:10px}.popular-pick{grid-template-columns:90px minmax(0,1fr) 18px;min-height:106px;padding:10px;gap:12px}.pick-art{min-height:84px}.pick-copy strong{font-size:14px}.picks-note{display:none}.popular-picks-section .mini-section-heading{align-items:flex-start}.coming-soon-panel{padding:19px}.category-bar{gap:7px;overflow-x:auto;white-space:nowrap}.category-bar a{flex:0 0 auto}}
 @media(max-width:390px){.games-grid{gap:8px}.game-info{gap:6px}.game-info h3{font-size:12px}.game-info p{font-size:9px}.category-tag{max-width:calc(100% - 72px)}.play-button{padding:0 7px}.popular-pick{grid-template-columns:78px minmax(0,1fr) 16px}}
+
+
+/* Richer game summaries and genre tags on curated game cards */
+.popular-pick{align-items:stretch;grid-template-columns:104px minmax(0,1fr) 22px;min-height:178px}
+.pick-copy{align-self:center;gap:6px;padding:4px 0}
+.pick-copy .pick-description{display:block;color:#b7b8ca;font-size:10px;line-height:1.65}
+.pick-copy .pick-tags{display:block;color:#a99af7;font-size:9px;line-height:1.5;font-weight:700}
+@media(max-width:700px){.popular-pick{min-height:160px;grid-template-columns:90px minmax(0,1fr) 18px}.pick-copy .pick-description{font-size:10px}.pick-copy .pick-tags{font-size:9px}}
+@media(max-width:390px){.popular-pick{grid-template-columns:78px minmax(0,1fr) 16px;min-height:172px}.pick-copy{gap:5px}.pick-copy .pick-description{font-size:9px}}
