@@ -155,6 +155,36 @@
     }
     @media(min-width:761px) and (max-width:1050px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+
+    /* Unified night theme and simpler one-action game cards. */
+    :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--panel2:#171d2c;--text:#f4f6ff;--muted:#9ca7bc;--line:rgba(160,177,211,.14);--purple:#9277ff}
+    body{background:radial-gradient(ellipse at 50% -15%,#1a2040 0,transparent 48%),#090b12;color:var(--text)}
+    .site-header{background:#090b12e8;backdrop-filter:blur(16px);border-bottom-color:#ffffff12}
+    .games-section,.madkid-library{color:#f4f6ff}
+    .game-card,.madkid-card{background:#111522;border-color:#252c3d;box-shadow:0 8px 24px #0002}
+    .game-card:hover,.madkid-card:hover{border-color:#8873ff;box-shadow:0 18px 38px #0006}
+    .madkid-cover{border:0;cursor:default}
+    .madkid-card-info{background:#111522}
+    .madkid-card-actions{justify-content:flex-end}
+    .madkid-card-actions a{display:none!important}
+    .madkid-details{border:1px solid #343b52;border-radius:8px;padding:8px 11px;background:#191f30;color:#d3d9e9;font-size:12px;font-weight:700;cursor:pointer}
+    .madkid-details:hover{border-color:#9277ff;color:#fff}
+    .madkid-play{padding:9px 14px;background:linear-gradient(135deg,#a18aff,#7658e8);box-shadow:0 5px 15px #7658e833}
+    .madkid-play:hover{filter:brightness(1.1)}
+    .madkid-preview{display:none!important}
+    .details-overlay{position:fixed;inset:0;z-index:10010;display:none;align-items:center;justify-content:center;padding:18px;background:#03040bdc;backdrop-filter:blur(9px)}
+    .details-overlay.open{display:flex}
+    .details-panel{width:min(520px,100%);overflow:hidden;border:1px solid #30374d;border-radius:20px;background:#111522;box-shadow:0 28px 90px #000a}
+    .details-panel img{display:block;width:100%;max-height:260px;aspect-ratio:16/9;object-fit:cover;background:#080b13}
+    .details-body{padding:20px}
+    .details-body h2{margin:0 0 8px;font-size:23px}
+    .details-body p{margin:0 0 18px;color:#a9b3c7;line-height:1.7;font-size:14px}
+    .details-actions{display:flex;justify-content:flex-end;gap:10px}
+    .details-actions button{border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}
+    .details-close{border:1px solid #343b52;background:#191f30;color:#e2e6f0}
+    .details-play{border:0;background:linear-gradient(135deg,#a18aff,#7658e8);color:#fff}
+    @media(max-width:600px){.details-panel{border-radius:15px}.details-body{padding:16px}.details-body h2{font-size:20px}}
+
   </style>
   <script src="app.js" defer></script>
 </head>
@@ -308,14 +338,14 @@
     <section class="madkid-library" id="madkid-games" aria-label="MadKidGames browser games">
       <div class="madkid-library-head"><div><span class="eyebrow">MADKIDGAMES COLLECTION</span><h2>More Games. <span class="gradient-text">Instant Play.</span></h2><p>Verified MadKidGames titles with their artwork. Hover to preview the cover animation, or open the game directly inside PlayVerse.</p></div><a href="https://www.madkidgames.com/all-games" target="_blank" rel="noopener noreferrer">Browse full catalog ↗</a></div>
       <div class="madkid-library-grid">
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="slope-down-first-trip" aria-label="Play Slope Down First Trip in PlayVerse"><img src="https://www.madkidgames.com/games/slope-down-first-trip/thumb_2.jpg" alt="Slope Down First Trip game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Slope Down First Trip</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/slope-down-first-trip" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="slope-down-first-trip">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="parkour-jump" aria-label="Play Parkour Jump in PlayVerse"><img src="https://www.madkidgames.com/games/parkour-jump/thumb_2.jpg" alt="Parkour Jump game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Parkour Jump</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/parkour-jump" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="parkour-jump">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="short-life" aria-label="Play Short Life in PlayVerse"><img src="https://www.madkidgames.com/games/short-life/thumb_2.jpg" alt="Short Life game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Short Life</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/short-life" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="short-life">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="safe-zone" aria-label="Play Safe Zone in PlayVerse"><img src="https://www.madkidgames.com/games/safe-zone/thumb_2.jpg" alt="Safe Zone game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Safe Zone!</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/safe-zone" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="safe-zone">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="ultimate-epic-battle-war" aria-label="Play Ultimate Epic Battle War in PlayVerse"><img src="https://www.madkidgames.com/games/ultimate-epic-battle-war/thumb_2.jpg" alt="Ultimate Epic Battle War game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Ultimate Epic Battle War</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/ultimate-epic-battle-war" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="ultimate-epic-battle-war">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="undercover-secret-management" aria-label="Play Undercover Secret Management in PlayVerse"><img src="https://www.madkidgames.com/games/undercover-secret-management/thumb_2.jpg" alt="Undercover Secret Management game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Undercover Secret Management</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/undercover-secret-management" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="undercover-secret-management">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="keep-on-mining-worlds" aria-label="Play Keep on Mining Worlds in PlayVerse"><img src="https://www.madkidgames.com/games/keep-on-mining-worlds/thumb_2.jpg" alt="Keep on Mining Worlds game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Keep on Mining Worlds</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/keep-on-mining-worlds" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="keep-on-mining-worlds">Play now</button></div></div></article>
-        <article class="madkid-card"><button class="madkid-cover" type="button" data-madkid="daily-shopping-stories" aria-label="Play Daily Shopping Stories in PlayVerse"><img src="https://www.madkidgames.com/games/daily-shopping-stories/thumb_2.jpg" alt="Daily Shopping Stories game cover" loading="lazy" decoding="async"><span class="madkid-preview"><i>▶</i> PLAY IN PLAYVERSE</span></button><div class="madkid-card-info"><h3>Daily Shopping Stories</h3><div class="madkid-card-actions"><a href="https://www.madkidgames.com/game/daily-shopping-stories" target="_blank" rel="noopener noreferrer">Game details ↗</a><button class="madkid-play" type="button" data-madkid="daily-shopping-stories">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Slope Down First Trip game cover"><img src="https://www.madkidgames.com/games/slope-down-first-trip/thumb_2.jpg" alt="Slope Down First Trip game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Slope Down First Trip</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="slope-down-first-trip">Details</button><button class="madkid-play" type="button" data-madkid="slope-down-first-trip">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Parkour Jump game cover"><img src="https://www.madkidgames.com/games/parkour-jump/thumb_2.jpg" alt="Parkour Jump game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Parkour Jump</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="parkour-jump">Details</button><button class="madkid-play" type="button" data-madkid="parkour-jump">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Short Life game cover"><img src="https://www.madkidgames.com/games/short-life/thumb_2.jpg" alt="Short Life game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Short Life</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="short-life">Details</button><button class="madkid-play" type="button" data-madkid="short-life">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Safe Zone game cover"><img src="https://www.madkidgames.com/games/safe-zone/thumb_2.jpg" alt="Safe Zone game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Safe Zone!</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="safe-zone">Details</button><button class="madkid-play" type="button" data-madkid="safe-zone">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Ultimate Epic Battle War game cover"><img src="https://www.madkidgames.com/games/ultimate-epic-battle-war/thumb_2.jpg" alt="Ultimate Epic Battle War game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Ultimate Epic Battle War</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="ultimate-epic-battle-war">Details</button><button class="madkid-play" type="button" data-madkid="ultimate-epic-battle-war">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Undercover Secret Management game cover"><img src="https://www.madkidgames.com/games/undercover-secret-management/thumb_2.jpg" alt="Undercover Secret Management game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Undercover Secret Management</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="undercover-secret-management">Details</button><button class="madkid-play" type="button" data-madkid="undercover-secret-management">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Keep on Mining Worlds game cover"><img src="https://www.madkidgames.com/games/keep-on-mining-worlds/thumb_2.jpg" alt="Keep on Mining Worlds game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Keep on Mining Worlds</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="keep-on-mining-worlds">Details</button><button class="madkid-play" type="button" data-madkid="keep-on-mining-worlds">Play now</button></div></div></article>
+        <article class="madkid-card"><div class="madkid-cover" aria-label="Daily Shopping Stories game cover"><img src="https://www.madkidgames.com/games/daily-shopping-stories/thumb_2.jpg" alt="Daily Shopping Stories game cover" loading="lazy" decoding="async"></div><div class="madkid-card-info"><h3>Daily Shopping Stories</h3><div class="madkid-card-actions"><button class="madkid-details" type="button" data-details="daily-shopping-stories">Details</button><button class="madkid-play" type="button" data-madkid="daily-shopping-stories">Play now</button></div></div></article>
       </div>
     </section>
     <section class="requested-games" id="requested-games" aria-label="Requested game collection">
@@ -369,6 +399,18 @@
       <footer class="external-game-foot">Game hosted by MadKidGames · If it does not load, <a id="externalGameSource" href="https://www.madkidgames.com/game/subway-surfers" target="_blank" rel="noopener noreferrer">open the game source</a>.</footer>
     </section>
   </div>
+
+  <div class="details-overlay" id="gameDetailsOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gameDetailsTitle">
+    <section class="details-panel">
+      <img id="gameDetailsImage" src="" alt="">
+      <div class="details-body">
+        <h2 id="gameDetailsTitle">Game details</h2>
+        <p id="gameDetailsDescription">Explore the game and launch it directly inside PlayVerse.</p>
+        <div class="details-actions"><button class="details-close" id="closeGameDetails" type="button">Close</button><button class="details-play" id="playFromDetails" type="button">Play now</button></div>
+      </div>
+    </section>
+  </div>
+
   <noscript><div class="noscript-note">Please enable JavaScript to play games on PlayVerse.</div></noscript>
 
 
@@ -394,6 +436,31 @@
  function shut(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
  Object.keys(games).forEach(id=>{const button=document.getElementById(id);if(button)button.addEventListener('click',()=>open(id));});
  document.querySelectorAll('[data-madkid]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.madkid)));
+
+ const detailsOverlay=document.getElementById('gameDetailsOverlay');
+ const detailsTitle=document.getElementById('gameDetailsTitle');
+ const detailsImage=document.getElementById('gameDetailsImage');
+ const detailsClose=document.getElementById('closeGameDetails');
+ const detailsPlay=document.getElementById('playFromDetails');
+ let selectedDetailsId='';
+ document.querySelectorAll('[data-details]').forEach(button=>button.addEventListener('click',()=>{
+   selectedDetailsId=button.dataset.details;
+   const card=button.closest('.madkid-card');
+   if(!card||!detailsOverlay)return;
+   detailsTitle.textContent=card.querySelector('h3')?.textContent||'Game details';
+   detailsImage.src=card.querySelector('img')?.src||'';
+   detailsImage.alt=detailsTitle.textContent+' game cover';
+   detailsOverlay.classList.add('open');
+   detailsOverlay.setAttribute('aria-hidden','false');
+   document.body.style.overflow='hidden';
+   detailsClose.focus();
+ }));
+ function closeDetails(){if(!detailsOverlay)return;detailsOverlay.classList.remove('open');detailsOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+ detailsClose?.addEventListener('click',closeDetails);
+ detailsOverlay?.addEventListener('click',event=>{if(event.target===detailsOverlay)closeDetails();});
+ detailsPlay?.addEventListener('click',()=>{const id=selectedDetailsId;closeDetails();open(id);});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&detailsOverlay?.classList.contains('open'))closeDetails();});
+
  close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))shut()});
 })();
 </script>
