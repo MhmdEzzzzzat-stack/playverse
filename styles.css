@@ -309,3 +309,70 @@ body{background:radial-gradient(ellipse at 78% 4%,rgba(0,133,255,.13),transparen
 .coming-soon-section{scroll-margin-top:90px}
 @media(max-width:1450px){.category-bar{margin-left:22px;margin-right:22px}}
 @media(max-width:760px){.category-bar{margin:10px 12px 0;padding:8px;gap:6px}.category-bar>a{padding:7px 10px;font-size:11px}.category-bar-note{display:none}.stats-strip{margin-bottom:20px}}
+
+
+/* PlayVerse exterior refresh: Poki-inspired playful, bright, compact layout */
+:root{
+  color-scheme:light;
+  --bg:#f5f8f4;--panel:#ffffff;--panel2:#eef5e9;--text:#202b22;--muted:#687568;
+  --purple:#6dce43;--pink:#ffcf4a;--cyan:#20b7a5;--line:rgba(32,43,34,.10);--radius:18px;
+}
+body{background:#f5f8f4;color:#202b22;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.ambient{opacity:.07;filter:blur(100px)}
+.site-header{max-width:none;height:72px;padding:0 clamp(16px,4vw,56px);background:#fff;border-bottom:1px solid #e8eee5;box-shadow:0 2px 12px rgba(33,53,28,.035)}
+.brand{font-weight:900;letter-spacing:-.06em;color:#253225}
+.brand-light{color:#253225}
+.main-nav{gap:8px}
+.nav-link{border-radius:999px;padding:9px 14px;color:#52604f;font-weight:700}
+.nav-link:hover,.nav-link.active{background:#e9f8df;color:#2b7620}
+.header-actions{gap:10px}
+.icon-button{background:#f2f6ef;border:1px solid #e5ece0;color:#2e392c}
+.header-cta,.primary-button{background:#74d34b;color:#183914;border:0;border-radius:12px;font-weight:850;box-shadow:0 4px 0 #4eae2e}
+.header-cta:hover,.primary-button:hover{background:#86e45b;transform:translateY(-1px)}
+.category-bar{max-width:1320px;margin:14px auto 10px;padding:0 22px;gap:9px}
+.category-bar a,.category-bar button{background:#fff;border:1px solid #e4ecdf;color:#485846;border-radius:999px;font-weight:750;padding:8px 14px}
+.category-bar a:hover,.category-bar button:hover{background:#e9f8df;border-color:#cdebbd;color:#2b7620}
+.hero-featured{max-width:1320px;margin:18px auto 26px;padding:clamp(24px,4vw,52px);min-height:350px;border-radius:26px;background:linear-gradient(115deg,#dff7c8 0%,#c9f0a7 48%,#b7e9ed 100%);color:#20371d;box-shadow:0 12px 34px rgba(67,117,47,.10);border:1px solid rgba(75,139,48,.12)}
+.hero-featured .eyebrow{color:#397b27;font-weight:900}
+.hero-featured h1,.hero-featured h2{color:#1d3519;letter-spacing:-.055em}
+.hero-featured p{color:#40563a}
+.hero-featured .gradient-text{background:linear-gradient(90deg,#277d25,#159c8a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.featured-tags span,.featured-tags .tag{background:rgba(255,255,255,.65);border:1px solid rgba(48,91,37,.12);color:#385434;border-radius:999px}
+.hero-art{border-radius:22px}
+.hero-art-image{border-radius:22px;box-shadow:0 16px 36px rgba(37,74,27,.18)}
+.hero-image-shade{background:linear-gradient(0deg,rgba(22,49,18,.18),transparent 60%);border-radius:22px}
+.float-card{background:#fff;color:#243423;border:1px solid #e8eee4;border-radius:16px;box-shadow:0 12px 32px rgba(35,65,28,.15)}
+.stats-strip{max-width:1320px;margin:0 auto 28px;background:#fff;border:1px solid #e8eee5;border-radius:18px;box-shadow:0 4px 16px rgba(30,50,25,.035)}
+.stats-strip strong{color:#2b7620}
+.mini-section-heading,.section-heading{max-width:1320px;margin-left:auto;margin-right:auto}
+.mini-section-heading h2,.section-heading h2{color:#253225;letter-spacing:-.04em}
+.category-tile,.recommendation-card,.popular-pick,.game-card{background:#fff;border:1px solid #e8eee5;border-radius:18px;box-shadow:0 3px 12px rgba(34,54,29,.035);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.category-tile:hover,.recommendation-card:hover,.popular-pick:hover,.game-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(39,74,30,.10);border-color:#cde9bf}
+.category-tile-icon{background:#eaf8e2;color:#367d26}
+.games-section,.recommendations-section,.recently-section,.popular-picks-section,.spotlight-section,.coming-soon-section{max-width:1320px;margin-left:auto;margin-right:auto}
+.search-wrap{background:#fff;border:1px solid #e4ecdf;border-radius:14px;box-shadow:0 3px 10px rgba(34,54,29,.025)}
+.search-wrap input{color:#263325}
+.filter-chip{background:#fff;border:1px solid #e3ebdf;color:#586753;border-radius:999px;font-weight:750}
+.filter-chip.selected,.filter-chip:hover{background:#e9f8df;border-color:#cdebbd;color:#2b7620}
+.game-cover{background:#edf4e9}
+.cover-badge{background:#ffdb63;color:#4e3a00;border-radius:8px;font-weight:900}
+.game-info h3{color:#263325}
+.category-tag{background:#eff6e9;color:#57704e;border-radius:999px}
+.play-button{background:#75d44d;color:#1e4016;border-radius:10px;font-weight:850}
+.play-button:hover{background:#8be35f}
+.favorite-button{background:#f4f7f1;color:#64725e;border-radius:10px}
+.spotlight-section{background:#fff;border:1px solid #e6ede2;border-radius:22px;padding:24px;box-shadow:0 5px 20px rgba(34,54,29,.04)}
+.coming-soon-panel{background:linear-gradient(120deg,#fff8dc,#f0fbe9);border:1px solid #f0e8c6;border-radius:20px;color:#283824}
+.bottom-banner{background:#e9f8df;border:1px solid #d7edca;border-radius:18px;color:#2a4c21}
+.site-footer{background:#fff;border-top:1px solid #e5ece0;color:#64715f}
+.site-footer a:hover{color:#2b7620}
+.game-modal .modal-panel{background:#fff;color:#263325}
+@media(max-width:760px){
+ .site-header{height:auto;min-height:64px;padding:12px 16px;flex-wrap:wrap;gap:10px}
+ .main-nav{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding-bottom:2px}
+ .hero-featured{margin:12px 12px 20px;padding:22px;min-height:unset;border-radius:20px}
+ .category-bar{padding:0 12px;margin-top:10px}
+ .stats-strip{margin:0 12px 22px}
+ .games-section,.recommendations-section,.recently-section,.popular-picks-section,.spotlight-section,.coming-soon-section{margin-left:12px;margin-right:12px}
+}
+@media(prefers-reduced-motion:reduce){.game-card,.category-tile,.recommendation-card,.popular-pick{transition:none}}
