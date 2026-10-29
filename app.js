@@ -163,7 +163,7 @@
     const id = link.closest(".game-card").dataset.game;
     saveRecentlyPlayed(id);
   }));
-  $$("[data-launch]").forEach(button => button.addEventListener("click", () => launchGame(button.dataset.launch)));
+  $("[data-launch]").forEach(button => button.addEventListener("click", () => { window.location.href = "play.html?source=native&game=" + encodeURIComponent(button.dataset.launch); }));
   $("#closeModal").addEventListener("click", closeGame);
   $("#restartGame").addEventListener("click", restartGame);
   modal.addEventListener("click", event => { if (event.target.matches("[data-close]")) closeGame(); });
