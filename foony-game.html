@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10111b">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Play official Foony multiplayer games on PlayVerse.">
+  <link rel="canonical" href="https://playverse-6a7.pages.dev/foony-game.html">
+  <title>Play Game — PlayVerse</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.foony-body{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#173c36 0%,#10111b 54%);display:flex;flex-direction:column}
+    .foony-page{width:min(1480px,100%);margin:0 auto;padding:24px clamp(12px,2.4vw,34px) 34px;flex:1}
+    .foony-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 18px}
+    .foony-heading h1{font:700 clamp(25px,3.5vw,38px)/1.12 "Space Grotesk",sans-serif;margin:7px 0}
+    .foony-heading p{color:var(--muted);font-size:13px;margin:0}
+    .foony-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#a7f3d0;font-size:11px;font-weight:700;letter-spacing:.14em}
+    .foony-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 14px #34d399}
+    .foony-toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+    .foony-toolbar a,.foony-toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 15px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff08;color:#f5f7fb;text-decoration:none;font:600 13px inherit;cursor:pointer}
+    .foony-frame-shell{position:relative;overflow:hidden;border:1px solid #ffffff1c;border-radius:18px;background:#080c0c;box-shadow:0 24px 80px #0006}
+    .foony-frame{display:block;width:100%;height:clamp(560px,calc(100vh - 210px),1000px);min-height:560px;border:0;background:#080c0c}
+    .foony-footer{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:13px 3px 0;color:#9ca3af;font-size:12px;line-height:1.6}
+    .foony-footer strong{color:#d1fae5;font-weight:600}
+    .foony-footer a{color:#c4b5fd;text-decoration:none}
+    @media(max-width:700px){.foony-page{padding:18px 10px 24px}.foony-heading{align-items:flex-start;flex-direction:column}.foony-toolbar{width:100%}.foony-toolbar a,.foony-toolbar button{flex:1}.foony-frame{height:75vh;min-height:520px}.foony-footer{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body class="foony-body">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PlayVerse home"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a>
+    <div class="header-actions"><a class="header-cta" href="index.html#games">All games <span>↗</span></a></div>
+  </header>
+  <main class="foony-page">
+    <div class="foony-heading">
+      <div><span class="foony-eyebrow">OFFICIAL GAME · MULTIPLAYER</span><h1 id="gameTitle">Loading game…</h1><p id="gameDescription">Loading the official game from Foony.</p></div>
+      <div class="foony-toolbar"><a href="index.html#games">← All games</a><button type="button" id="gameFullscreen">⛶ Fullscreen</button></div>
+    </div>
+    <div class="foony-frame-shell" id="gameFrameShell">
+      <iframe class="foony-frame" id="gameFrame" title="Foony game" allow="fullscreen; autoplay; clipboard-write; gamepad" allowfullscreen loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="foony-footer"><span><strong>Powered by Foony</strong> · Play the official game without leaving PlayVerse.</span><span>If a game does not load inside the page, open its official version below. <a id="officialLink" href="https://foony.com/GAMES" target="_blank" rel="noopener noreferrer">Open on Foony ↗</a></span></div>
+  </main>
+  <script>
+    const games = {
+      "8-ball-pool-online-billiards": {title:"8 Ball Pool", description:"Online billiards · Multiplayer", path:"8-ball-pool-online-billiards"},
+      "chess": {title:"Chess", description:"Online chess · Strategy", path:"chess"},
+      "4-in-a-row-connect": {title:"4 in a Row", description:"Connect four · Multiplayer", path:"4-in-a-row-connect"},
+      "9-ball-pool-online-billiards": {title:"9 Ball Pool", description:"Online billiards · Multiplayer", path:"9-ball-pool-online-billiards"},
+      "foono-online-card-game": {title:"Foon-o", description:"Online card game · Multiplayer", path:"foono-online-card-game"},
+      "ludo": {title:"Ludo", description:"Classic board game · Multiplayer", path:"ludo"},
+      "checkers": {title:"Checkers", description:"Classic strategy · Multiplayer", path:"checkers"},
+      "popaword": {title:"Pop-a-Word", description:"Word puzzle · Competitive", path:"popaword"},
+      "dinomight": {title:"Dino-Might Bomber", description:"Action · Multiplayer", path:"dinomight"},
+      "typeroyale": {title:"TypeRoyale", description:"Typing race · Competitive", path:"typeroyale"}
+    };
+    const slug = new URLSearchParams(location.search).get("game") || "8-ball-pool-online-billiards";
+    const game = games[slug] || games["8-ball-pool-online-billiards"];
+    const url = "https://foony.com/games/" + game.path;
+    document.title = game.title + " — PlayVerse";
+    document.getElementById("gameTitle").textContent = game.title;
+    document.getElementById("gameDescription").textContent = game.description;
+    document.getElementById("gameFrame").src = url + "?description=true";
+    document.getElementById("gameFrame").title = game.title + " on Foony";
+    document.getElementById("officialLink").href = url;
+    const shell = document.getElementById("gameFrameShell");
+    document.getElementById("gameFullscreen").addEventListener("click", async () => {
+      try { if (document.fullscreenElement) await document.exitFullscreen(); else await shell.requestFullscreen(); }
+      catch (_) { document.getElementById("gameFullscreen").textContent = "Fullscreen unavailable"; }
+    });
+    document.addEventListener("fullscreenchange", () => {
+      document.getElementById("gameFullscreen").textContent = document.fullscreenElement ? "× Exit fullscreen" : "⛶ Fullscreen";
+    });
+  </script>
+</body>
+</html>

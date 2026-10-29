@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10111b">
-  <meta name="description" content="Play free online games on PlayVerse. Discover arcade, puzzle, memory, and classic browser games on desktop and mobile. No downloads required.">
+  <meta name="description" content="Play popular free online multiplayer games on PlayVerse: 8 Ball Pool, Chess, 4 in a Row, Ludo, Checkers and more.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="google-site-verification" content="umU99tbQQDCeofEvtvD24r3GovIpDI7Tcc7shACn7Aw" />
   <link rel="canonical" href="https://playverse-6a7.pages.dev/">
@@ -23,6 +23,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hide retired prototype recommendations while the real-game library is being rolled out. */
+    .recommendations-section, #open-source-arcade, .spotlight-section { display: none !important; }
+    .coming-soon-section{max-width:1180px;margin:20px auto 72px;padding:0 24px}
+    .coming-soon-panel{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 26px;border:1px solid #ffffff19;border-radius:20px;background:linear-gradient(115deg,#171a2c,#121321);box-shadow:0 18px 45px #0003}
+    .coming-soon-panel .eyebrow{color:#b9a9ff;font-size:11px;font-weight:800;letter-spacing:.15em}
+    .coming-soon-panel h2{margin:8px 0;font-size:clamp(22px,3vw,30px)}
+    .coming-soon-panel p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .coming-soon-mark{flex:0 0 68px;width:68px;height:68px;display:grid;place-items:center;border:1px solid #a78bfa55;border-radius:18px;background:#8b5cf61a;color:#c4b5fd;font-size:30px}
+    @media(max-width:600px){.coming-soon-section{padding:0 15px}.coming-soon-panel{padding:19px;align-items:flex-start}.coming-soon-mark{flex-basis:48px;width:48px;height:48px;font-size:23px}}
+  </style>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -30,7 +41,7 @@
   <header class="site-header">
     <a class="brand" href="#" aria-label="PlayVerse home"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class="nav-link active" href="#games">All Games</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#new-games">New Games</a>
+      <a class="nav-link active" href="#games">All Games</a><a class="nav-link" href="#featured">Featured</a><a class="nav-link" href="#coming-soon">Coming Soon</a>
     </nav>
     <div class="header-actions"><button class="icon-button" id="favoritesToggle" aria-pressed="false" aria-label="Show favorites" title="Favorites">♡</button><a class="header-cta" href="#games">Play now <span>↗</span></a></div>
   </header>
@@ -91,48 +102,102 @@
     </section>
     <section class="games-section" id="games">
       <div class="section-heading"><div><div class="eyebrow">THE GAME ZONE</div><h2>Pick your <span class="gradient-text">vibe.</span></h2><p>One click and you’re in. What are we playing?</p></div><div class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="Find a game..." aria-label="Search games"><kbd>/</kbd></div></div>
-      <div class="filter-row" role="group" aria-label="Filter games">      <div class="filter-row" role="group" aria-label="Filter games">
-        <button class="filter-chip selected" data-filter="All">✦ All games <span>15</span></button><button class="filter-chip" data-filter="Arcade">🕹 Arcade</button><button class="filter-chip" data-filter="Puzzle">🧩 Puzzle</button><button class="filter-chip" data-filter="Memory">🧠 Memory</button><button class="filter-chip" data-filter="Classic">⭐ Classics</button>
+      <div class="filter-row" role="group" aria-label="Filter games">
+        <button class="filter-chip selected" data-filter="All">✦ All games <span>10</span></button><button class="filter-chip" data-filter="Arcade">🕹 Arcade</button><button class="filter-chip" data-filter="Puzzle">🧩 Puzzle</button><button class="filter-chip" data-filter="Classic">⭐ Classics</button>
       </div>
       <div class="games-grid" id="gamesGrid">
-        <article class="game-card" data-name="neon drift 3d racing car nitro cyber circuit" data-category="Arcade" data-game="neon-drift"><div class="game-cover"><span class="cover-badge">3D RACING</span><img class="cover-art" src="assets/neon-drift.svg" alt="Neon Drift 3D racing game artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Neon Drift 3D</h3><p>Own the night. Hit the nitro.</p></div><button class="favorite-button" aria-label="Add Neon Drift 3D to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">RACING</span><a class="play-button" href="neon-drift.html">Play <span>↗</span></a></div></article>
-        <article class="game-card" data-name="cyber rush 3d endless runner neon city" data-category="Arcade" data-game="cyber-rush"><div class="game-cover"><span class="cover-badge">3D ENDLESS RUNNER</span><img class="cover-art" src="assets/cyber-rush.svg" alt="Cyber Rush 3D endless runner artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Cyber Rush 3D</h3><p>Dodge. Jump. Outrun the city.</p></div><button class="favorite-button" aria-label="Add Cyber Rush 3D to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">3D ACTION</span><a class="play-button" href="cyber-rush.html">Play <span>↗</span></a></div></article>
-        <article class="game-card" data-name="8 ball pool billiards foony multiplayer sports chat achievements profile items experience" data-category="Arcade" data-game="foony-pool"><div class="game-cover" style="background:radial-gradient(circle at 50% 45%,#287c62,#123d37 70%,#101f25)"><span class="cover-badge">MULTIPLAYER</span><div aria-hidden="true" style="font-size:74px;filter:drop-shadow(0 12px 18px #0008)">🎱</div></div><div class="game-info"><div><h3>8 Ball Pool</h3><p>Play online with Foony.</p></div><button class="favorite-button" aria-label="Add 8 Ball Pool to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">SPORTS · MULTIPLAYER</span><a class="play-button" href="foony-8-ball-pool.html">Play <span>↗</span></a></div></article>
-        <article class="game-card" data-name="2048 number puzzle" data-category="Puzzle" data-game="2048">
-          <div class="game-cover cover-2048"><span class="cover-badge">BRAIN BOOST</span><img class="cover-art" src="assets/2048.svg" alt="2048 number puzzle artwork" loading="lazy" decoding="async"></div>
-          <div class="game-info"><div><h3>2048</h3><p>Slide. Merge. Master.</p></div><button class="favorite-button" aria-label="Add 2048 to favorites" aria-pressed="false">♡</button></div>
-          <div class="card-bottom"><span class="category-tag">PUZZLE</span><button class="play-button" data-launch="2048">Play <span>↗</span></button></div>
+        <article class="game-card" data-name="8 ball pool foony online multiplayer sports · multiplayer" data-category="Arcade" data-game="foony-pool">
+          <a class="game-cover" href="foony-game.html?game=8-ball-pool-online-billiards" aria-label="Play 8 Ball Pool">
+            <span class="cover-badge">MOST PLAYED</span>
+            <img class="cover-art" src="https://foony.com/img/games/8-ball-pool-online-billiards/og_image.webp" alt="8 Ball Pool official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/8-ball-pool-online-billiards/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>8 Ball Pool</h3><p>2.5M games / month</p></div><button class="favorite-button" aria-label="Add 8 Ball Pool to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">SPORTS · MULTIPLAYER</span><a class="play-button" href="foony-game.html?game=8-ball-pool-online-billiards" data-track-game="foony-pool">Play <span>↗</span></a></div>
         </article>
-        <article class="game-card" data-name="snake arcade classic" data-category="Arcade" data-game="snake">
-          <div class="game-cover cover-snake"><span class="cover-badge">ARCADE HIT</span><img class="cover-art" src="assets/neon-snake.svg" alt="Neon Snake arcade artwork" loading="lazy" decoding="async"></div>
-          <div class="game-info"><div><h3>Neon Snake</h3><p>One more bite.</p></div><button class="favorite-button" aria-label="Add Neon Snake to favorites" aria-pressed="false">♡</button></div>
-          <div class="card-bottom"><span class="category-tag">ARCADE</span><button class="play-button" data-launch="snake">Play <span>↗</span></button></div>
+        <article class="game-card" data-name="chess foony online multiplayer board · strategy" data-category="Classic" data-game="foony-chess">
+          <a class="game-cover" href="foony-game.html?game=chess" aria-label="Play Chess">
+            <span class="cover-badge">MOST PLAYED</span>
+            <img class="cover-art" src="https://foony.com/img/games/chess/og_image.webp" alt="Chess official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/chess/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Chess</h3><p>Think ahead. Play online.</p></div><button class="favorite-button" aria-label="Add Chess to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">BOARD · STRATEGY</span><a class="play-button" href="foony-game.html?game=chess" data-track-game="foony-chess">Play <span>↗</span></a></div>
         </article>
-        <article class="game-card" data-name="memory match cards brain" data-category="Memory" data-game="memory">
-          <div class="game-cover cover-memory"><span class="cover-badge">TRAIN YOUR BRAIN</span><img class="cover-art" src="assets/memory-match.svg" alt="Memory Match card artwork" loading="lazy" decoding="async"></div>
-          <div class="game-info"><div><h3>Memory Match</h3><p>Find every pair.</p></div><button class="favorite-button" aria-label="Add Memory Match to favorites" aria-pressed="false">♡</button></div>
-          <div class="card-bottom"><span class="category-tag">MEMORY</span><button class="play-button" data-launch="memory">Play <span>↗</span></button></div>
+        <article class="game-card" data-name="4 in a row foony online multiplayer board · strategy" data-category="Classic" data-game="foony-connect4">
+          <a class="game-cover" href="foony-game.html?game=4-in-a-row-connect" aria-label="Play 4 in a Row">
+            <span class="cover-badge">MOST PLAYED</span>
+            <img class="cover-art" src="https://foony.com/img/games/4-in-a-row-connect/og_image.webp" alt="4 in a Row official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/4-in-a-row-connect/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>4 in a Row</h3><p>Connect four before your rival.</p></div><button class="favorite-button" aria-label="Add 4 in a Row to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">BOARD · STRATEGY</span><a class="play-button" href="foony-game.html?game=4-in-a-row-connect" data-track-game="foony-connect4">Play <span>↗</span></a></div>
         </article>
-        <article class="game-card" data-name="tic tac toe noughts crosses classic" data-category="Classic" data-game="tictactoe">
-          <div class="game-cover cover-ttt"><span class="cover-badge">THE CLASSIC</span><img class="cover-art" src="assets/tic-tac-toe.svg" alt="Tic Tac Toe board artwork" loading="lazy" decoding="async"></div>
-          <div class="game-info"><div><h3>Tic Tac Toe</h3><p>Outsmart your rival.</p></div><button class="favorite-button" aria-label="Add Tic Tac Toe to favorites" aria-pressed="false">♡</button></div>
-          <div class="card-bottom"><span class="category-tag">CLASSIC</span><button class="play-button" data-launch="tictactoe">Play <span>↗</span></button></div>
+        <article class="game-card" data-name="9 ball pool foony online multiplayer sports · multiplayer" data-category="Arcade" data-game="foony-9ball">
+          <a class="game-cover" href="foony-game.html?game=9-ball-pool-online-billiards" aria-label="Play 9 Ball Pool">
+            <span class="cover-badge">MOST PLAYED</span>
+            <img class="cover-art" src="https://foony.com/img/games/9-ball-pool-online-billiards/og_image.webp" alt="9 Ball Pool official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/9-ball-pool-online-billiards/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>9 Ball Pool</h3><p>A faster billiards challenge.</p></div><button class="favorite-button" aria-label="Add 9 Ball Pool to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">SPORTS · MULTIPLAYER</span><a class="play-button" href="foony-game.html?game=9-ball-pool-online-billiards" data-track-game="foony-9ball">Play <span>↗</span></a></div>
         </article>
-<article class="game-card" data-name="brick breaker breakout arcade" data-category="Arcade" data-game="breakout"><div class="game-cover cover-breakout"><span class="cover-badge">ARCADE CLASSIC</span><img class="cover-art" src="assets/brick-breaker.svg" alt="Brick Breaker arcade artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Brick Breaker</h3><p>Smash every brick.</p></div><button class="favorite-button" aria-label="Add Brick Breaker to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">ARCADE</span><a class="play-button" href="breakout.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="minesweeper mines logic puzzle" data-category="Puzzle" data-game="minesweeper"><div class="game-cover cover-mines"><span class="cover-badge">LOGIC PUZZLE</span><img class="cover-art" src="assets/minesweeper.svg" alt="Minesweeper logic puzzle artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Minesweeper</h3><p>Think before you tap.</p></div><button class="favorite-button" aria-label="Add Minesweeper to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">PUZZLE</span><a class="play-button" href="minesweeper.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="reaction test reflex speed" data-category="Arcade" data-game="reaction"><div class="game-cover cover-reaction"><span class="cover-badge">TEST YOUR REFLEXES</span><img class="cover-art" src="assets/reaction-test.svg" alt="Reaction Test lightning artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Reaction Test</h3><p>How fast are you?</p></div><button class="favorite-button" aria-label="Add Reaction Test to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">ARCADE</span><a class="play-button" href="reaction-test.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="whack a mole reflex arcade" data-category="Arcade" data-game="whack"><div class="game-cover cover-mole"><span class="cover-badge">QUICK REFLEXES</span><img class="cover-art" src="assets/whack-a-mole.svg" alt="Whack-a-Mole artwork" loading="lazy" decoding="async"></div><div class="game-info"><div><h3>Whack-a-Mole</h3><p>Catch them if you can.</p></div><button class="favorite-button" aria-label="Add Whack-a-Mole to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">ARCADE</span><a class="play-button" href="whack-a-mole.html">Play <span>↗</span></a></div></article>
-
-<article class="game-card" data-name="pong retro table tennis" data-category="Classic" data-game="pong" data-preview-src="pong.html"><div class="game-cover cover-pong"><span class="cover-badge">RETRO CLASSIC</span><img class="cover-art" src="assets/pong.svg" alt="Pong retro arcade cover art" loading="lazy" decoding="async"><span class="preview-hint">PREVIEW ON HOVER</span></div><div class="game-info"><div><h3>Pong</h3><p>First to 5 wins.</p></div><button class="favorite-button" aria-label="Add Pong to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">CLASSIC</span><a class="play-button" href="pong.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="flappy dot flying arcade" data-category="Arcade" data-game="flappy" data-preview-src="flappy.html"><div class="game-cover cover-flappy"><span class="cover-badge">ONE MORE TRY</span><img class="cover-art" src="assets/flappy-dot.svg" alt="Flappy Dot arcade cover art" loading="lazy" decoding="async"><span class="preview-hint">PREVIEW ON HOVER</span></div><div class="game-info"><div><h3>Flappy Dot</h3><p>Tap to stay airborne.</p></div><button class="favorite-button" aria-label="Add Flappy Dot to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">ARCADE</span><a class="play-button" href="flappy.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="simon says color memory" data-category="Memory" data-game="simon" data-preview-src="simon.html"><div class="game-cover cover-simon"><span class="cover-badge">MEMORY CHALLENGE</span><img class="cover-art" src="assets/simon-says.svg" alt="Simon Says memory game cover art" loading="lazy" decoding="async"><span class="preview-hint">PREVIEW ON HOVER</span></div><div class="game-info"><div><h3>Simon Says</h3><p>Repeat the pattern.</p></div><button class="favorite-button" aria-label="Add Simon Says to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">MEMORY</span><a class="play-button" href="simon.html">Play <span>↗</span></a></div></article>
-<article class="game-card" data-name="tetris block puzzle" data-category="Puzzle" data-game="tetris" data-preview-src="tetris.html"><div class="game-cover cover-tetris"><span class="cover-badge">BLOCK BUILDER</span><img class="cover-art" src="assets/block-drop.svg" alt="Block Drop puzzle game cover art" loading="lazy" decoding="async"><span class="preview-hint">PREVIEW ON HOVER</span></div><div class="game-info"><div><h3>Block Drop</h3><p>Stack it. Clear lines.</p></div><button class="favorite-button" aria-label="Add Block Drop to favorites" aria-pressed="false">♡</button></div><div class="card-bottom"><span class="category-tag">PUZZLE</span><a class="play-button" href="tetris.html">Play <span>↗</span></a></div></article>
+        <article class="game-card" data-name="foon-o foony online multiplayer card · multiplayer" data-category="Classic" data-game="foony-foono">
+          <a class="game-cover" href="foony-game.html?game=foono-online-card-game" aria-label="Play Foon-o">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/foono-online-card-game/og_image.webp" alt="Foon-o official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/foono-online-card-game/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Foon-o</h3><p>A quick competitive card game.</p></div><button class="favorite-button" aria-label="Add Foon-o to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">CARD · MULTIPLAYER</span><a class="play-button" href="foony-game.html?game=foono-online-card-game" data-track-game="foony-foono">Play <span>↗</span></a></div>
+        </article>
+        <article class="game-card" data-name="ludo foony online multiplayer board · multiplayer" data-category="Classic" data-game="foony-ludo">
+          <a class="game-cover" href="foony-game.html?game=ludo" aria-label="Play Ludo">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/ludo/og_image.webp" alt="Ludo official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/ludo/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Ludo</h3><p>Race your pieces to the finish.</p></div><button class="favorite-button" aria-label="Add Ludo to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">BOARD · MULTIPLAYER</span><a class="play-button" href="foony-game.html?game=ludo" data-track-game="foony-ludo">Play <span>↗</span></a></div>
+        </article>
+        <article class="game-card" data-name="checkers foony online multiplayer board · strategy" data-category="Classic" data-game="foony-checkers">
+          <a class="game-cover" href="foony-game.html?game=checkers" aria-label="Play Checkers">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/checkers/og_image.webp" alt="Checkers official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/checkers/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Checkers</h3><p>Capture pieces and control the board.</p></div><button class="favorite-button" aria-label="Add Checkers to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">BOARD · STRATEGY</span><a class="play-button" href="foony-game.html?game=checkers" data-track-game="foony-checkers">Play <span>↗</span></a></div>
+        </article>
+        <article class="game-card" data-name="pop-a-word foony online multiplayer word · puzzle" data-category="Puzzle" data-game="foony-popaword">
+          <a class="game-cover" href="foony-game.html?game=popaword" aria-label="Play Pop-a-Word">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/popaword/og_image.webp" alt="Pop-a-Word official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/popaword/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Pop-a-Word</h3><p>Find words under pressure.</p></div><button class="favorite-button" aria-label="Add Pop-a-Word to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">WORD · PUZZLE</span><a class="play-button" href="foony-game.html?game=popaword" data-track-game="foony-popaword">Play <span>↗</span></a></div>
+        </article>
+        <article class="game-card" data-name="dino-might bomber foony online multiplayer action · arcade" data-category="Arcade" data-game="foony-dinomight">
+          <a class="game-cover" href="foony-game.html?game=dinomight" aria-label="Play Dino-Might Bomber">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/dinomight/og_image.webp" alt="Dino-Might Bomber official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/dinomight/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>Dino-Might Bomber</h3><p>Explosive multiplayer action.</p></div><button class="favorite-button" aria-label="Add Dino-Might Bomber to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">ACTION · ARCADE</span><a class="play-button" href="foony-game.html?game=dinomight" data-track-game="foony-dinomight">Play <span>↗</span></a></div>
+        </article>
+        <article class="game-card" data-name="typeroyale foony online multiplayer word · competitive" data-category="Arcade" data-game="foony-typeroyale">
+          <a class="game-cover" href="foony-game.html?game=typeroyale" aria-label="Play TypeRoyale">
+            <span class="cover-badge">FEATURED</span>
+            <img class="cover-art" src="https://foony.com/img/games/typeroyale/og_image.webp" alt="TypeRoyale official game artwork" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://foony.com/img/games/typeroyale/og_image.png'">
+          </a>
+          <div class="game-info"><div><h3>TypeRoyale</h3><p>Race by typing faster.</p></div><button class="favorite-button" aria-label="Add TypeRoyale to favorites" aria-pressed="false">♡</button></div>
+          <div class="card-bottom"><span class="category-tag">WORD · COMPETITIVE</span><a class="play-button" href="foony-game.html?game=typeroyale" data-track-game="foony-typeroyale">Play <span>↗</span></a></div>
+        </article>
       </div>
-      <section class="spotlight-section" aria-label="Game preview"><div class="spotlight-copy"><span class="eyebrow"><i class="live-dot"></i> PLAYVERSE SPOTLIGHT</span><h2>See the action.<br><span class="gradient-text">Jump right in.</span></h2><p>Quick rounds, satisfying combos, and one-more-try moments. Pick a game and start playing instantly.</p><a class="primary-button" href="#games">Explore all games <span>→</span></a></div><a class="spotlight-preview" href="#games" aria-label="Browse games from the animated preview"><span class="preview-top"><i></i><i></i><i></i><b>LIVE GAME PREVIEW</b></span><div class="preview-arena"><div class="preview-score">SCORE <strong>02480</strong></div><div class="preview-block block-a"></div><div class="preview-block block-b"></div><div class="preview-block block-c"></div><div class="preview-ball"></div><div class="preview-paddle"></div><span class="preview-combo">COMBO ×3!</span></div><span class="preview-caption">A little preview of the fun <b>↗</b></span></a></section><div class="new-games-anchor" id="new-games"><span class="eyebrow">JUST ADDED</span><h2>New to PlayVerse</h2><p>Fresh games to try right now.</p></div>
+      <section class="spotlight-section" aria-label="Game preview"><div class="spotlight-copy"><span class="eyebrow"><i class="live-dot"></i> PLAYVERSE SPOTLIGHT</span><h2>See the action.<br><span class="gradient-text">Jump right in.</span></h2><p>Quick rounds, satisfying combos, and one-more-try moments. Pick a game and start playing instantly.</p><a class="primary-button" href="#games">Explore all games <span>→</span></a></div><a class="spotlight-preview" href="#games" aria-label="Browse games from the animated preview"><span class="preview-top"><i></i><i></i><i></i><b>LIVE GAME PREVIEW</b></span><div class="preview-arena"><div class="preview-score">SCORE <strong>02480</strong></div><div class="preview-block block-a"></div><div class="preview-block block-b"></div><div class="preview-block block-c"></div><div class="preview-ball"></div><div class="preview-paddle"></div><span class="preview-combo">COMBO ×3!</span></div><span class="preview-caption">A little preview of the fun <b>↗</b></span></a></section>
       <div class="empty-state" id="emptyState" hidden><span>🔎</span><h3>No games found</h3><p>Try another search or category.</p><button class="text-button" id="resetFilters">Clear filters</button></div>
     </section>
     <section class="bottom-banner" id="about"><div class="banner-icon">✦</div><div><span class="eyebrow">SMALL BREAK. BIG ENERGY.</span><h2>Good games. Good vibes.</h2><p>PlayVerse is your growing corner of the internet for quick, free browser games.</p></div><a class="primary-button" href="#games">Find a game <span>→</span></a></section>
   </main>
+    <section class="coming-soon-section" id="coming-soon" aria-label="Coming soon">
+      <div class="coming-soon-panel">
+        <div><span class="eyebrow">COMING SOON</span><h2>More real games are on the way.</h2><p>We’re adding verified browser games with their original artwork and playable pages. No placeholder games.</p></div>
+        <div class="coming-soon-mark" aria-hidden="true">✦</div>
+      </div>
+    </section>
   <footer class="site-footer"><a class="brand footer-brand" href="#"><img src="logo.svg" alt="" width="35" height="35" style="border-radius:12px"><span>play<span class="brand-light">verse</span></span></a><span>Made for play. Built for everyone.</span><span>© <span id="year"></span> PlayVerse</span></footer>
   <div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-close></div><section class="modal-panel"><header class="modal-header"><div><span class="eyebrow">NOW PLAYING</span><h2 id="modalTitle">Game</h2></div><button class="icon-button modal-close" id="closeModal" aria-label="Close game">×</button></header><div class="modal-content" id="modalContent"></div><footer class="modal-footer"><span id="gameHint">Have fun!</span><button class="secondary-button" id="restartGame">↻ Restart</button></footer></section>
