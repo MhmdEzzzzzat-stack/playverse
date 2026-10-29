@@ -76,6 +76,11 @@
     .requested-games h2{margin:6px 0;font-size:clamp(1.6rem,3vw,2.3rem)}
     .requested-games p{color:#a9adbf;line-height:1.6}
     .requested-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+    .requested-card-with-cover{padding:0;overflow:hidden;justify-content:flex-start;gap:10px}
+    .requested-game-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#0b0d17}
+    .requested-card-with-cover strong,.requested-card-with-cover span,.requested-card-with-cover .requested-play-button{margin-left:14px;margin-right:14px}
+    .requested-card-with-cover .requested-play-button{margin-bottom:14px}
+    .requested-card-with-cover strong{margin-top:2px}
     .requested-card{background:#171927;border:1px solid #2a2e42;border-radius:16px;padding:16px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
     .requested-card strong{font-size:1rem}
     .requested-card span{font-size:.78rem;color:#aeb4c9}
@@ -265,8 +270,8 @@
     <section class="requested-games" id="requested-games" aria-label="Requested game collection">
       <div class="requested-head"><div><span class="eyebrow">YOUR GAME LIST</span><h2>Requested <span class="gradient-text">24 Games</span></h2><p>Games are listed by their requested names. Only games with a verified playable embed are enabled; the rest stay marked until a working authorized source is confirmed.</p></div><span class="trending-count">24 TITLES</span></div>
       <div class="requested-grid">
-        <article class="requested-card available"><strong>Offroad Outlaws</strong><span>MadKidGames embed supplied</span><button type="button" class="requested-play-button" id="openOffroadGame">▶ Play here</button></article>
-        <article class="requested-card available"><strong>Subway Surfers</strong><span>Playable embed available</span><button type="button" class="requested-play-button" id="openSubwayGame">▶ Play here</button></article>
+        <article class="requested-card available requested-card-with-cover"><img class="requested-game-cover" src="https://www.madkidgames.com/games/offroad-outlaws/thumb_2.jpg" alt="Offroad Outlaws game cover" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://www.madkidgames.com/images/site-logo-100511.png'"><strong>Offroad Outlaws</strong><span>MadKidGames embed supplied</span><button type="button" class="requested-play-button" id="openOffroadGame">▶ Play here</button></article>
+        <article class="requested-card available requested-card-with-cover"><img class="requested-game-cover" src="https://www.madkidgames.com/games/subway-surfers/thumb_2.jpg" alt="Subway Surfers game cover" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://www.madkidgames.com/images/site-logo-100511.png'"><strong>Subway Surfers</strong><span>Playable embed available</span><button type="button" class="requested-play-button" id="openSubwayGame">▶ Play here</button></article>
         <article class="requested-card"><strong>Level Devil</strong><span>Source/embedding not verified yet</span></article>
         <article class="requested-card"><strong>Smash Karts</strong><span>Source/embedding not verified yet</span></article>
         <article class="requested-card"><strong>Blocky Blast Puzzle</strong><span>Source/embedding not verified yet</span></article>
